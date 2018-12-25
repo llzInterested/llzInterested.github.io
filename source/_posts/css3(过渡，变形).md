@@ -1,8 +1,13 @@
 ---
 title: css3(过渡，变形)
+categories: 
+    - CSS
+tags: 
+    - 前端
+    - CSS3 
 ---
 
-[toc]
+
 # 过渡
 - 过渡结束时可以监听`transitionend`事件,在webkit下是`webkitTransitionEnd`事件
 - 每一个拥有过渡的属性在完成过渡时都会触发一次`transitionend`事件
