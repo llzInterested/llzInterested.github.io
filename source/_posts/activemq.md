@@ -4,7 +4,7 @@ categories:
     - java
 tags: 
     - 消息队列
-    - ActiveMQ    
+    - ActiveMQ  
 ---
 # JMS消息模型
 ## 名词解释

@@ -35,7 +35,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: shana
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -81,3 +81,32 @@ deploy:
   type: git
   repository: git@github.com:llzInterested/llzInterested.github.io.git
   branch: master
+
+# 文章末尾添加"本文结束"标记
+passage_end_tag:
+  enabled: true
+# 添加搜索功能
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000  
+# 添加live2d模型
+live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    use: kesyoban
+  display:
+    position: right
+    width: 150
+    height: 300
+    hOffset: -80
+    vOffset: -100
+  mobile:
+    show: true
