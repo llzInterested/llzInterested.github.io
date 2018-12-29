@@ -3,8 +3,9 @@ title: ActiveMQ学习记录
 date: 2018-12-24 16:40:05
 categories: 
     - java
+    - ActiveMQ  
 tags: 
-    - 消息队列
+    - java
     - ActiveMQ  
 ---
 # JMS消息模型
