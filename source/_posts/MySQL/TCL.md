@@ -3,10 +3,10 @@ title: MySQL学习记录之----事务
 date: 2017-11-12 14:46:32
 categories: 
     - 数据库
-    - 事务
+    - MySQL
 tags: 
     - 数据库
-    - 事务 
+    - MySQL 
 ---
 # 事务控制语言Transaction Control Language
 ## Mysql存储引擎
