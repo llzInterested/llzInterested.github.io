@@ -65,17 +65,17 @@ tags:
 ```
 
 ## 名词
-- *切面(Aspect)*: 横切关注点(跨越应用程序多个模块的功能)被模块化的特殊对象，即功能就是切面，如上截图，有日志切面和验证切面
+- *切面(Aspect)*: 横切关注点(跨越应用程序多个模块的功能)被模块化的特殊对象，即<font color="blue">功能就是切面</font>，如上截图，有日志切面和验证切面
 - *通知(Advice)*:  切面必须要完成的工作，即切面中的每个方法
 - *目标(Target)*: 被通知的对象，即业务逻辑
 - *代理(Proxy)*: 向目标对象应用通知之后创建的对象
 - *连接点（Joinpoint）*：程序执行的某个特定位置：如类某个方法调用前、调用后、方法抛出异常后等。连接点由两个信息确定：方法表示的程序执行点；相对点表示的方位(方法执行前还是执行后)
 - *切点（pointcut）*：
-    - 每个类都拥有多个连接点：例如一个类的所有方法实际上都是连接点，即连接点是程序类中客观存在的事务。
-    - AOP通过切点定位到特定的连接点。类比：连接点相当于数据库中的记录，切点相当于查询条件。
+    - 即原有的功能
     - 切点和连接点不是一对一的关系，一个切点匹配多个连接点，切点通过`org.springframework.aop.Pointcut`接口进行描述，它使用类和方法作为连接点的查询条件
 
-## 启用AspectJ注解
+## AOP实现 
+### 1.启用AspectJ注解
 1. 导入jar包`aopalliance.jar`、`aspectj.weaver.jar` 和 `spring-aspects.jar`
 2. 在配置文件中加入aop命名空间并加入`<aop:aspectj-autoproxy>`
 3. 把横切关注点的代码抽象到切面的类中
@@ -98,7 +98,7 @@ public class LogginAspect {
 }
 ```
 
-### 通知类型
+#### 通知类型
 - *@Before*: 前置通知, 在方法执行之前执行
 - *@After*: 后置通知, 在方法执行之后执行(无论是否出现异常)，在后置通知中还不能访问目标方法执行的结果(因为方法可能会出异常) 
 - *@AfterRunning*: 返回通知, 在方法返回结果之后执行,返回通知中可以访问方法的返回值
@@ -144,7 +144,7 @@ try{
     }
 ```
 
-### 切入点表达式
+#### 切入点表达式
 - `execution * com.llz.spring.ArithmeticCalculator.*(..)`      
     - 匹配 ArithmeticCalculator 中声明的所有方法
     - 第一个 `*` 代表任意修饰符及任意返回值
@@ -156,7 +156,7 @@ try{
 - `execution public double ArithmeticCalculator.*(double, ..)`: 匹配第一个参数为double类型的方法,`..`匹配任意数量任意类型的参数
 - `execution public double ArithmeticCalculator.*(double, double)`: 匹配参数类型为 double, double 类型的方法
 
-#### 重用切入点表达式
+##### 重用切入点表达式
 当同一个切点表达式可能会在多个通知中重复出现时使用
 
 1. 通过 `@Pointcut`注解将一个切入点声明成简单的方法,切入点的方法体通常是空的
@@ -167,10 +167,10 @@ try{
 ![](https://note.youdao.com/yws/api/personal/file/C278D6F97F914D1EA1175402B97F7247?method=download&shareKey=54ad0474098878f2beaeb8a0b6a71771)
 
 
-### 指定切面优先级
+#### 指定切面优先级
 在切面类上加注解`@Order(num)`,其中num为数字，数值越小优先级越高
 
-## 基于xml配置声明切面
+#### 基于xml配置声明切面
 ```xml
 <!--aop配置-->
 <aop:config>
@@ -186,7 +186,15 @@ try{
 </aop:config>
 ```
 
+### 2.schema-base方式
+[schema-base方式实现aop](https://blog.csdn.net/qq_41617744/article/details/80279675)
+
+
 # Spring的事务管理
+## 声明式事务
+- `声明式事务`：事务控制代码已经由spring写好，程序员只需要声明出哪些方法需要进行事务控制和如何进行事务控制
+- `编程式事务`：由程序员编写事务控制代码
+
 ## 基于注解使用
 ### 1.需要导入的jar包
 ```xml
@@ -245,7 +253,7 @@ try{
 ```
 
 
-## 事务的传播行为
+## 事务的传播行为propagation
 - 当事务方法被另一个事务方法调用时,必须指定事务应该如何传播. 例如: 方法可能继续在现有事务中运行, 也可能开启一个新事务, 并在自己的事务中运行
 - 事务的传播行为可以由传播属性指定.Spring定义了7种类传播行为,可以在`@Transactional` 注解的 `propagation` 属性中定义
 
@@ -259,7 +267,29 @@ demo：当购买2本书但只够付一本书的钱时，2本书都买不了
 demo：当购买2本书但只够付一本书的钱时，可以买第一本
 ![](https://note.youdao.com/yws/api/personal/file/739AC9E31DF344C0BFFDA736392110DD?method=download&shareKey=046e4479d63c96d009113aebfeb77dbf)
 
-## 事务的隔离级别
+
+## 事务的隔离级别isolation
+在多线程或并发访问下如何保证访问到的数据具有完整性
+
+### 存在的问题
+#### 脏读
+1. 一个事务A读取到另一个事务B中未提交的数据
+2. B事务中数据可能改变了，此时A事务读取的数据可能和数据库中数据不一致
+3. 读取脏数据的过程叫脏读
+
+#### 不可重复读
+- 主要针对某行数据(或行中某列)
+- 主要针对修改操作
+- 2次读取在同一个事务内
+- 当事务A第一次读取事务后，事务B对事务A读取的数据进行修改，事务A中再次读取的数据和之前读取的数据不一致，这个过程叫不可重复读
+
+#### 幻读
+- 主要针对新增或删除
+- 2次事务的结果
+- 事务A按照特定条件查询出结果，事务B新增了一条符合条件的数据，事务A中查询的数据和数据库中数据不一致，事务A好像出行了幻觉，这种情况叫幻读
+
+### 隔离级别
+
 ![](https://note.youdao.com/yws/api/personal/file/C0B141A9A05E4F5EA6A074B7087B9B26?method=download&shareKey=aa13c8bd22906c20185b1365dd464ae4)
 
 - 事务的隔离级别可以在`@Transactional`注解的`isolation`属性中定义
@@ -267,7 +297,10 @@ demo：当购买2本书但只够付一本书的钱时，可以买第一本
 - Oracle 支持的 2种事务隔离级别：`READ_COMMITED`,`SERIALIZABLE`
 - Mysql 支持 4种事务隔离级别.
 
-## 事务的回滚规则
+
+
+
+## 事务的回滚规则(rollbackFor,noRollbackFor)
 - 默认情况下只有`未检查异常(RuntimeException和Error类型的异常)`会导致事务回滚. 而`受检查异常`不会
 - 事务的回滚规则可以通过 `@Transactional` 注解的 `rollbackFor` 和`noRollbackFor`属性来定义.这两个属性被声明为 `Class[]` 类型的, 因此可以为这两个属性指定多个异常类
     - `rollbackFor`:  遇到时必须进行回滚
@@ -277,7 +310,7 @@ demo如下：
 ![](https://note.youdao.com/yws/api/personal/file/9735A6AD9F4749FAB2EE12EAC3E04B56?method=download&shareKey=ddb5aab764fca8b150364713e1ce0b12)
 
 
-## 事务的超时和只读属性
+## 事务的超时(timeout)和只读属性(readOnly)
 - 由于事务可以在行和表上获得锁,因此长事务会占用资源,并对整体性能产生影响. 
 - 如果一个事物只读取数据但不做修改,数据库引擎可以对这个事务进行优化.
 - `超时事务属性`:事务在强制回滚之前可以保持多久.这样可以防止长期运行的事务占用资源.单位：s
@@ -285,6 +318,52 @@ demo如下：
 
 demo如下：
 ![](https://note.youdao.com/yws/api/personal/file/BC6EBBB45DDF44C99C202B9406ADA305?method=download&shareKey=c7afdc5e50227573008d2bd65eb22c05)
+
+
+# Spring常用注解总结
+## @Component
+创建类对象，相当于配置<bean/>
+
+## @Service
+现在与@Component功能相同，建议写在ServiceImpl类上
+
+## @Repository
+现在与@Component功能相同，建议写在数据访问层类上
+
+## @Controller
+现在与@Component功能相同，写在控制器类上
+
+## @Resource(jdk中提供的)
+- 默认按照`byName`注入
+- 若没有名称对象，按照`byType`注入
+- 建议对象名称和spring容器中对象名相同
+
+## @Autowired(Spring提供的)
+默认按照`byType`注入
+
+## @Value()
+获取properties文件中内容
+
+## @PointCut()
+定义切点
+
+## @Aspect()
+定义切面类
+
+## @Before()
+前置通知
+
+## After()
+后置通知
+
+## AfterRuturning()
+返回通知
+
+## AfterThrowing()
+异常通知
+
+## @Arround()
+环绕通知
 
 
 

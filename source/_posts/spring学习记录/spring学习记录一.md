@@ -9,9 +9,54 @@ tags:
     - Spring 
 ---
 
+# 概览
+![](https://note.youdao.com/yws/api/personal/file/FEA20BFE63E24FB7A2604336232A903F?method=download&shareKey=572b30c6df6604b85f5643e600414757)
+
+- `Core Container`：核心容器
+    - `beans`：Spring负责创建类对象并管理对象
+    - `Core`：核心类
+    - `Context`：上下文参数，获取外部资源或管理注解等
+    - `SpEL`：expression.jar
+    
+- `AOP`：实现aop功能需要依赖
+- `Aspects`：切面，aop依赖的包
+- `Data Access/Integration`：spring封装数据访问层相关内容
+    - `JDBC`：Spring对jdbc封装后的代码
+    - `ORM`：封装了持久层框架的代码，如：Hibernate
+    - `OXM`：封装的xml读取的jar包
+    - `JMS`：java mail的封装
+    - `Transactions`：对应spring-tx.jar，声明式事务使用
+    
+- `Web`：web相关功能
+
 # 基础
 ## 从HelloWorld开始
-1. 创建一个HelloWorld类
+
+### 1.导入核心jar包
+```xml
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>4.0.0.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-beans</artifactId>
+    <version>4.0.0.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>4.0.0.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-expression</artifactId>
+    <version>4.0.0.RELEASE</version>
+</dependency>
+```
+
+### 2.创建一个HelloWorld类
 ```java
 public class HelloWorld {
     private String name;
@@ -42,7 +87,9 @@ public class HelloWorld {
     }
 }
 ```
-2. 创建spring的配置文件applicationContext.xml
+
+### 3. 创建spring的配置文件applicationContext.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -55,7 +102,8 @@ public class HelloWorld {
     </bean>
 </beans>
 ```
-3. 执行HelloWorld的main()方法，可以看到结果如下：
+
+### 4. 执行HelloWorld的main()方法，可以看到结果如下：
 > 构造函数执行  
 > set方法执行   
 > Hello：spring
@@ -101,7 +149,7 @@ Spring提供2种类型的IOC容器实现：
 
 ##### 构造方法注入
 - 该方法注入Bean的属性值或依赖的对象，它保证了Bean实例在实例化后就可以使用
-- 构造器注入在`<constructor-arg>`元素里声明属性,`<constructor-arg>` 中没有 `name` 属性
+- 构造器注入在`<constructor-arg>`元素里声明属性，需要在类中提供有参构造方法
 
 ```java
 public class Person {
@@ -119,7 +167,9 @@ public class Person {
 
 ```xml
 <bean id="person" class="com.llz.beans.Person">
-    <!--可以通过index索引来匹配，也能通过type类型来匹配,index和type属性也可以省略，省略时按顺序匹配-->
+    <!--1.可以通过index索引来匹配，也能通过type类型来匹配,还能通过name指定属性名称来匹配,index，type，name属性也可以省略，省略时按顺序匹配
+        2.如果设定的条件匹配多个构造方法，执行最后的构造方法
+    -->
     <constructor-arg value="张三" index="0"/>
     <constructor-arg value="北京" index="1"/>
     <constructor-arg value="18" type="int"/>
@@ -161,6 +211,8 @@ public class Person {
 - 这种方式要求bean中必须有无参构造器
 
 ### 静态工厂方法创建bean
+静态工厂：不需要创建工厂就能生产对象
+
 ```java
 public class StaticFactory {
     private static Map<String,Car> cars = new HashMap<String,Car>();
@@ -190,6 +242,8 @@ public class StaticFactory {
 ```
 
 ### 实例工厂方法创建bean
+实例工厂：需要先创建工厂，然后生产对象
+
 ```java
 public class InstanceFactory {
     private Map<String,Car> cars = null;
@@ -265,6 +319,45 @@ prototype | 容器初始化时不创建bean实例，每次调用`getBean()`都�
 request | 每次HTTP请求都会创建一个新的bean，该作用域仅适用于`WebApplicationContext`环境
 session | 同一个HTTP Session共享一个Bean，不同的HTTP Session使用不同的Bean，该作用域仅适用于`WebApplicationContext`环境
 
+### 单例设计模式
+#### 懒汉式
+1. 对象只有被调用时才去创建
+2. 由于添加了锁，所以效率较低
+
+
+```java
+public class SingleTon {
+    private static SingleTon singleTon;
+    private SingleTon(){}
+
+    public static SingleTon getInstance(){
+        if(singleTon == null){
+            //多线程访问下，可能会有多个线程进来
+            synchronized (SingleTon.class){
+                if(singleTon == null){
+                    singleTon = new SingleTon();
+                }
+            }
+        }
+        return singleTon;
+    }
+}
+```
+
+#### 饿汉式
+解决懒汉式中多线程访问可能出现同一个对象和效率低的问题
+
+```java
+public class SingleTon {
+    private static SingleTon singleTon = new SingleTon();
+    private SingleTon(){}
+    public static SingleTon getInstance(){
+        return singleTon;
+    }
+}
+```
+
+
 
 ## 使用外部属性文件
 如加载外部数据库连接信息(需先导入`context`命名空间)：
@@ -273,55 +366,4 @@ session | 同一个HTTP Session共享一个Bean，不同的HTTP Session使用不
 ```
 
 之后使用`${val}`取值即可
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
