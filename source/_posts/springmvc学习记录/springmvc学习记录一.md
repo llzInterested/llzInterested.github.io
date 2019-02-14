@@ -9,38 +9,89 @@ tags:
     - SpringMVC 
 ---
 
+# 重要组件
+## DispatchServlet
+前端控制器，接收所有请求（如果配置`/`则不包含以`.jsp`结尾的请求）
+
+## HandlerMapping
+解析请求格式，判断要执行哪个具体方法
+
+## HandlerAdapter
+负责调用具体的方法
+
+## ViewResolver
+视图解析器，解析结果，准备跳转到具体的物理视图
+
+# 简单运行流程
+
+
+```
+graph TB
+请求 --> DispatchServlet接收所有请求
+DispatchServlet接收所有请求 --> HandlerMapping判断每个请求具体对应执行哪个方法
+HandlerMapping判断每个请求具体对应执行哪个方法 --> HandlerAdapter来调用对应的方法
+HandlerAdapter来调用对应的方法 --> Controller/Handler
+Controller/Handler --> ViewResolver
+ViewResolver --> 请求
+```
+
+
 # 从HelloWorld开始
 ## 1.配置web.xml
 
 ```xml
+<!--字符编码过滤器，解决中文乱码-->
+<filter>
+    <filter-name>encoding</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+        <param-name>encoding</param-name>
+        <param-value>UTF-8</param-value>
+    </init-param>
+</filter>
+<filter-mapping>
+    <filter-name>encoding</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+  
+  
 <!--配置DispatchServlet-->
-    <servlet>
-        <servlet-name>springDispatchServlet</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <!--当不配置contextConfigLocation来指定springmvc配置文件位置时，默认是：/WEB-INF/<servlet-name>-servlet.xml-->
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:springmvc.xml</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>springDispatchServlet</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
+<servlet>
+    <servlet-name>springDispatchServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!--当不配置contextConfigLocation来指定springmvc配置文件位置时，默认是：/WEB-INF/<servlet-name>-servlet.xml-->
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:springmvc.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>springDispatchServlet</servlet-name>
+    <!-- 拦截除.jsp的所有请求-->
+    <url-pattern>/</url-pattern>
+</servlet-mapping>
 ```
+
+
 
 ## 2.创建springmvc.xml
 
 ```xml 
 <!--注解扫描-->
 <context:component-scan base-package="com.llz"/>
-<!--配置视图解析器-->
-<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-    <property name="prefix" value="WEB-INF/views/"/>
-    <property name="suffix" value=".jsp"/>
-</bean>
+
+<!--注解驱动，相当于配置了
+    org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping
+    org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter
+-->
+<mvc:annotation-driven/>
+
+<!--静态资源-->
+<mvc:resources mapping="/js/**" location="/js/"/>
+<mvc:resources mapping="/css/**" location="/css/"/>
+<mvc:resources mapping="/image/**" location="/image/"/>
 ```
 
 ## 3.创建HelloWorld类
@@ -59,6 +110,19 @@ public class HelloWorld {
     }
 }
 ```
+
+# 视图解析器
+- springmvc提供默认的视图解析器
+- 也可以自定义视图解析器
+- 如果希望不执行自定义视图解析器，在方法返回值前添加`forward:`或`redirect:`
+
+```xml
+<bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="prefix" value="/"/>
+    <property name="suffix" value=".jsp"/>
+</bean>
+```
+
 
 # 注解
 ## @RequestMapping
@@ -85,7 +149,7 @@ demo:
 - `/user/createUser??`:匹配/user/createUser<font color="blue">aa</font>、/user/createUser<font color="blue">bb</font> 等 URL
 
 ## 将请求中的一些信息绑定到入参中
-### @PathVariable绑定url参数到入参中
+### @PathVariable绑定url参数到入参中(restful风格)
 ```java
 @RequestMapping("delete/{id}")
 public String delete(@PathVariable("id") Integer id){
@@ -128,6 +192,25 @@ public String testCookieValue(@CookieValue("JSESSIONID")String sessionId){
     return "success";
 }
 ```
+
+### 获取前台多选框的值
+```html
+<form action="/demo">
+    <input type="checkbox" name="hover" value="看书">
+    <input type="checkbox" name="hover" value="听歌">
+    <input type="checkbox" name="hover" value="游泳">
+    <button type="submit">提交</button>
+</form>
+```
+
+```java
+@RequestMapping("demo")
+public String demo(@RequestParam("hover")List<String> hover){
+    System.out.println("获取的参数" + hover);
+    return "/main.jsp";
+}
+```
+ 
 
 ### 使用POJO对象绑定请求参数值
 Spring MVC 会按请求参数名和POJO属性名进行自动匹配，自动为该对象填充属性值。支持级联属性
@@ -237,41 +320,3 @@ public String testMap(Map<String,Object> map){
     return "success";
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
