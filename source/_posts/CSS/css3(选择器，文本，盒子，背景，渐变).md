@@ -1,6 +1,8 @@
 ---
 title: css3(选择器，文本，盒子，背景，渐变)
 date: 2017-08-12 15:32:18
+description: 文章访问需要密码
+password: llz721097
 categories: 
     - CSS
     - CSS3

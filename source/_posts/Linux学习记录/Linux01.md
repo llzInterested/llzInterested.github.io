@@ -1,6 +1,8 @@
 ---
 title: Linux学习记录01
 date: 2018-08-24 16:26:45
+description: 文章访问需要密码
+password: llz721097
 categories: 
     - Linux
 tags: 

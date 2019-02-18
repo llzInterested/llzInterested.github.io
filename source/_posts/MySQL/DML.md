@@ -1,6 +1,8 @@
 ---
 title: MySQL学习记录之----DML语句
 date: 2017-10-19 15:11:43
+description: 文章访问需要密码
+password: llz721097
 categories: 
     - 数据库
     - MySQL

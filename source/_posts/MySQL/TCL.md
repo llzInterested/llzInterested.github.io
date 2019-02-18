@@ -1,6 +1,8 @@
 ---
 title: MySQL学习记录之----事务
 date: 2017-11-12 14:46:32
+description: 文章访问需要密码
+password: llz721097
 categories: 
     - 数据库
     - MySQL
