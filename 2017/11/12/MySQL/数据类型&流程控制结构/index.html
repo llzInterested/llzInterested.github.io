@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="数据库,MySQL," />
 
 
 
@@ -88,11 +88,15 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="llz&#39;s blog">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;index.html">
+<meta name="description" content="数值型整型   类型 字节    Tinyint 1   Smallint 2   Mediumint 3   Int&#x2F;integer 4   Bigint 8   - 如果不设置是无符号还是有符号，默认为有符号，如需设置为无符号，使用unsigned关键字    - 如果插入的数值不在整型范围内，会报out of range，并插入临界值    - 如果不设置长度，int有符号默认为11，int">
+<meta name="keywords" content="数据库,MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL学习记录之----数据类型&amp;流程控制">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2017&#x2F;11&#x2F;12&#x2F;MySQL&#x2F;%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B&amp;%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84&#x2F;index.html">
 <meta property="og:site_name" content="llz&#39;s blog">
+<meta property="og:description" content="数值型整型   类型 字节    Tinyint 1   Smallint 2   Mediumint 3   Int&#x2F;integer 4   Bigint 8   - 如果不设置是无符号还是有符号，默认为有符号，如需设置为无符号，使用unsigned关键字    - 如果插入的数值不在整型范围内，会报out of range，并插入临界值    - 如果不设置长度，int有符号默认为11，int">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-14T07:06:37.515Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -123,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/12/MySQL/数据类型&流程控制结构/"/>
 
 
 
 
 
-  <title>归档 | llz's blog</title>
+  <title>MySQL学习记录之----数据类型&流程控制 | llz's blog</title>
   
 
 
@@ -148,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
 
@@ -277,370 +281,403 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/12/MySQL/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B&%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="llz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="llz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">MySQL学习记录之----数据类型&流程控制</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-12T16:50:23+08:00">
+                2017-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 23 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
 
-      
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
 
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/22/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%89/" itemprop="url">
-              
-                <span itemprop="name">shiro学习记录一</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-22T10:24:23+08:00"
-              content="2019-02-22" >
-          02-22
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/21/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/" itemprop="url">
-              
-                <span itemprop="name">shiro学习记录一</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-21T15:27:58+08:00"
-              content="2019-02-21" >
-          02-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
+      
+        <h1 id="数值型"><a href="#数值型" class="headerlink" title="数值型"></a>数值型</h1><h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">字节</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Tinyint</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">Smallint</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">Mediumint</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">Int/integer</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Bigint</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="center">- 如果不设置是无符号还是有符号，默认为有符号，如需设置为无符号，使用<code>unsigned</code>关键字</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- 如果插入的数值不在整型范围内，会报out of range，并插入临界值</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- 如果不设置长度，int有符号默认为11，int无符号默认为10，该长度不表示插入数值的范围</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">## 小数</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">类型</td>
+<td align="center">字节</td>
+</tr>
+<tr>
+<td align="center">:-:</td>
+<td align="center">:-:</td>
+</tr>
+<tr>
+<td align="center">浮点型float(M,D)</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">浮点型double(M,D)</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="center">定点型dec(M,D)/定点型decimal(M,D)</td>
+<td align="center">m+2</td>
+</tr>
+<tr>
+<td align="center">- M：整数部分+小数部分的总位数</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- D：小数部分的最大位数</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- 如果超过范围，则插入临界值</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- M和D都可以省略，省略时float和double无限制，decimal默认M=10，D=0</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- 定点型精确度较高，如果要求插入数值的精度，如货币运算优先使用decimal</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">### 浮点型</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">### 定点型</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">最大取值范围域double相同，给定decimal的有效取值范围由M和D决定</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">## 字符型</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">### 较短的文本</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">类型</td>
+<td align="center">范围</td>
+</tr>
+<tr>
+<td align="center">:-:</td>
+<td align="center">:-:</td>
+</tr>
+<tr>
+<td align="center">char()</td>
+<td align="center">0~255个字符</td>
+</tr>
+<tr>
+<td align="center">varchar()</td>
+<td align="center">0~65535个字符</td>
+</tr>
+</tbody></table>
+<h3 id="较短的二进制"><a href="#较短的二进制" class="headerlink" title="较短的二进制"></a>较短的二进制</h3><p>binary和varbinary用于保存较短的二进制</p>
+<h3 id="枚举类型enum"><a href="#枚举类型enum" class="headerlink" title="枚举类型enum"></a>枚举类型enum</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名(</span><br><span class="line">    列名 enum(<span class="string">'a'</span>,<span class="string">'b'</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>上述写法则表示该列只能插入a，b，A，B这几个值</p>
+<h3 id="集合类型set"><a href="#集合类型set" class="headerlink" title="集合类型set"></a>集合类型set</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名(</span><br><span class="line">    列名 <span class="keyword">set</span>(<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 表名 <span class="keyword">values</span>(<span class="string">'a'</span>)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 表名 <span class="keyword">values</span>(<span class="string">'a,b'</span>)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 表名 <span class="keyword">values</span>(<span class="string">'a,b,d'</span>)</span><br></pre></td></tr></table></figure>
+<p>同样不区分大小写</p>
+<h2 id="日期型"><a href="#日期型" class="headerlink" title="日期型"></a>日期型</h2><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">字节</th>
+<th align="center">最小值</th>
+<th align="center">最大值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">date</td>
+<td align="center">4</td>
+<td align="center">1000-01-01</td>
+<td align="center">9999-12-31</td>
+</tr>
+<tr>
+<td align="center">datetime</td>
+<td align="center">8</td>
+<td align="center">1000-01-01 00:00:00</td>
+<td align="center">9999-12-31 23:59:59</td>
+</tr>
+<tr>
+<td align="center">timestamp</td>
+<td align="center">4</td>
+<td align="center">1970 01 01 08 00 01</td>
+<td align="center">2038年的某个时刻</td>
+</tr>
+<tr>
+<td align="center">time</td>
+<td align="center">3</td>
+<td align="center">-838:59:59</td>
+<td align="center">838:59:59</td>
+</tr>
+<tr>
+<td align="center">year</td>
+<td align="center">1</td>
+<td align="center">1901</td>
+<td align="center">2155</td>
+</tr>
+<tr>
+<td align="center">- timestamp和实际时区有关，更能反映实际的日期，而datetime则只能反映插入时的当地时区</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">- timestamp的属性受mysql版本和SQLMode的影响很大</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"># 流程控制结构</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">## 分支结构</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">### if函数</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">实现简单的双分支，语法：</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p><code>select if(表达式1，表达式2，表达式3)</code></p>
+<p>执行顺序：表达式1为true，返回表达式2的值，为false，返回表达式3的值</p>
+<h3 id="case结构"><a href="#case结构" class="headerlink" title="case结构"></a>case结构</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">case 变量|表达式|字段</span><br><span class="line">when 要判断的值 then 返回的值1或语句1</span><br><span class="line">when 要判断的值 then 返回的值2或语句2</span><br><span class="line">...</span><br><span class="line">else 要返回的值n或语句n</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>其中else可以省略，若省略else，则所有when条件都不满足时返回<code>null</code></p>
+<h3 id="if结构"><a href="#if结构" class="headerlink" title="if结构"></a>if结构</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if 条件1 then 语句1</span><br><span class="line">elseif 条件2 then 语句2</span><br><span class="line">...</span><br><span class="line">else 语句n</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">if</span></span><br></pre></td></tr></table></figure>
+<p>其中else可以省略,且只能用于<code>begin end</code>中</p>
+<h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><p>循环控制：</p>
+<ul>
+<li>iterate：等同java中的continue  </li>
+<li>leave：等同java中的break<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">循环名称:while 循环条件 <span class="keyword">do</span></span><br><span class="line">    循环体</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">while</span> 循环名称;</span><br></pre></td></tr></table></figure>
+其中循环名称可以省略，当用到<code>iterate</code>和<code>leave</code>时必须加循环名称<h3 id="loop"><a href="#loop" class="headerlink" title="loop"></a>loop</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">循环名称:loop</span><br><span class="line">    循环体</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">loop</span> 循环名称;</span><br></pre></td></tr></table></figure>
+其中循环名称可以省略<h3 id="repeat"><a href="#repeat" class="headerlink" title="repeat"></a>repeat</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">循环名称:repeat</span><br><span class="line">    循环体</span><br><span class="line">until 结束循环条件</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">repeat</span> 循环名称;</span><br></pre></td></tr></table></figure>
+<h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3>批量插入，根据次数插入到admin表多条数据，次数&gt;20停止<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">create procedure p1(in insertCount int)</span><br><span class="line">begin </span><br><span class="line">    declare i int default 1;</span><br><span class="line">    a:while i&lt;=insertCount do</span><br><span class="line">        insert into admin(username,password) values(concat(&apos;张三&apos;,i),&apos;123456&apos;);</span><br><span class="line">        if i&gt;=20 then leave a;</span><br><span class="line">        end if</span><br><span class="line">        set i=i+1;</span><br><span class="line">    end while a;    </span><br><span class="line">end $</span><br><span class="line"></span><br><span class="line">call p1(100)$</span><br></pre></td></tr></table></figure>
 
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/20/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/" itemprop="url">
-              
-                <span itemprop="name">shiro学习记录一</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-20T11:32:38+08:00"
-              content="2019-02-20" >
-          02-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+</li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/18/redis%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/redis%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url">
-              
-                <span itemprop="name">redis学习记录</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-18T19:16:33+08:00"
-              content="2019-02-18" >
-          02-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/11/Mybatis%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Mybatis%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url">
-              
-                <span itemprop="name">Mybatis学习记录</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-11T10:23:54+08:00"
-              content="2019-02-11" >
-          02-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/21/springmvc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/springmvc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/" itemprop="url">
-              
-                <span itemprop="name">springmvc学习记录二</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-21T14:35:29+08:00"
-              content="2019-01-21" >
-          01-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/18/springmvc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/springmvc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/" itemprop="url">
-              
-                <span itemprop="name">springmvc学习记录一</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-18T16:50:29+08:00"
-              content="2019-01-18" >
-          01-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/16/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/" itemprop="url">
-              
-                <span itemprop="name">spring学习记录二</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-16T15:12:29+08:00"
-              content="2019-01-16" >
-          01-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/07/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/" itemprop="url">
-              
-                <span itemprop="name">spring学习记录一</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-07T16:33:49+08:00"
-              content="2019-01-07" >
-          01-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/12/MySQL/TCL/" rel="next" title="MySQL学习记录之----事务">
+                <i class="fa fa-chevron-left"></i> MySQL学习记录之----事务
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/24/MySQL/%E8%A7%86%E5%9B%BE&%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" rel="prev" title="MySQL学习记录之----视图&存储过程">
+                MySQL学习记录之----视图&存储过程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -648,6 +685,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -668,8 +709,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -740,6 +790,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数值型"><span class="nav-number">1.</span> <span class="nav-text">数值型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整型"><span class="nav-number">1.1.</span> <span class="nav-text">整型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#较短的二进制"><span class="nav-number">1.1.1.</span> <span class="nav-text">较短的二进制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举类型enum"><span class="nav-number">1.1.2.</span> <span class="nav-text">枚举类型enum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合类型set"><span class="nav-number">1.1.3.</span> <span class="nav-text">集合类型set</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期型"><span class="nav-number">1.2.</span> <span class="nav-text">日期型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#case结构"><span class="nav-number">1.2.1.</span> <span class="nav-text">case结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if结构"><span class="nav-number">1.2.2.</span> <span class="nav-text">if结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环结构"><span class="nav-number">1.3.</span> <span class="nav-text">循环结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#while"><span class="nav-number">1.3.1.</span> <span class="nav-text">while</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loop"><span class="nav-number">1.3.2.</span> <span class="nav-text">loop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repeat"><span class="nav-number">1.3.3.</span> <span class="nav-text">repeat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#demo"><span class="nav-number">1.3.4.</span> <span class="nav-text">demo</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -895,6 +961,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

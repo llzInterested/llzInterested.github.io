@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="数据库,MySQL," />
 
 
 
@@ -88,11 +88,15 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="llz&#39;s blog">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;index.html">
+<meta name="description" content="插入12345&#x2F;&#x2F;语法1insert into 表名(列名...) values (值...)&#x2F;&#x2F;语法2insert into 表名 set 列名=值，列名=值 ...  语法1支持插入多行，如insert into 表名 values(值...),(值...)... 语法1支持子查询，如insert into 表名 select ...删除单表删除12345&#x2F;&#x2F;语法1delete from 表名">
+<meta name="keywords" content="数据库,MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL学习记录之----DML语句">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2017&#x2F;10&#x2F;19&#x2F;MySQL&#x2F;DML&#x2F;index.html">
 <meta property="og:site_name" content="llz&#39;s blog">
+<meta property="og:description" content="插入12345&#x2F;&#x2F;语法1insert into 表名(列名...) values (值...)&#x2F;&#x2F;语法2insert into 表名 set 列名=值，列名=值 ...  语法1支持插入多行，如insert into 表名 values(值...),(值...)... 语法1支持子查询，如insert into 表名 select ...删除单表删除12345&#x2F;&#x2F;语法1delete from 表名">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-14T07:06:45.290Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -123,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/19/MySQL/DML/"/>
 
 
 
 
 
-  <title>归档 | llz's blog</title>
+  <title>MySQL学习记录之----DML语句 | llz's blog</title>
   
 
 
@@ -148,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
 
@@ -277,370 +281,197 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/19/MySQL/DML/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="llz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="llz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">MySQL学习记录之----DML语句</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-19T15:11:43+08:00">
+                2017-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 23 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
 
-      
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
 
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/22/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%89/" itemprop="url">
-              
-                <span itemprop="name">shiro学习记录一</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-22T10:24:23+08:00"
-              content="2019-02-22" >
-          02-22
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/21/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/" itemprop="url">
-              
-                <span itemprop="name">shiro学习记录一</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-21T15:27:58+08:00"
-              content="2019-02-21" >
-          02-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/20/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/" itemprop="url">
-              
-                <span itemprop="name">shiro学习记录一</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-20T11:32:38+08:00"
-              content="2019-02-20" >
-          02-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//语法1</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 表名(列名...) <span class="keyword">values</span> (值...)</span><br><span class="line"></span><br><span class="line">//语法<span class="number">2</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 表名 <span class="keyword">set</span> 列名=值，列名=值 ...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>语法1支持插入多行，如<code>insert into 表名 values(值...),(值...)...</code></li>
+<li>语法1支持子查询，如<code>insert into 表名 select ...</code><h1 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h1><h2 id="单表删除"><a href="#单表删除" class="headerlink" title="单表删除"></a>单表删除</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//语法1</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> 表名 <span class="keyword">where</span> 筛选条件</span><br><span class="line"></span><br><span class="line">//语法<span class="number">2</span>，全表删除，不能加<span class="keyword">where</span>条件</span><br><span class="line"><span class="keyword">truncate</span> <span class="keyword">table</span> 表名</span><br></pre></td></tr></table></figure></li>
+<li>delete可以加where条件，truncate不能</li>
+<li>全表删除时使用truncate效率比delete高</li>
+<li>若删除的表中有自增长列，delete删除后再插入数据自增长列的值从断点开始，使用truncate删除后从0开始</li>
+<li>truncate删除无返回值，delete删除有返回值</li>
+<li>truncate删除不能回滚，delete删除可以回滚<h2 id="多表删除"><a href="#多表删除" class="headerlink" title="多表删除"></a>多表删除</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//sql92语法,要删除哪个表中的数据，<span class="keyword">delete</span>后加哪个表的别名</span><br><span class="line"><span class="keyword">delete</span> 表<span class="number">1</span>的别名，表<span class="number">2</span>的别名 <span class="keyword">from</span> 表<span class="number">1</span> 别名<span class="number">1</span>，表<span class="number">2</span> 别名<span class="number">2</span> <span class="keyword">where</span> 连接条件 <span class="keyword">and</span> 筛选条件</span><br><span class="line"></span><br><span class="line">//sql99语法</span><br><span class="line"><span class="keyword">delete</span> 表<span class="number">1</span>的别名，表<span class="number">2</span>的别名 <span class="keyword">from</span> 表<span class="number">1</span> 别名<span class="number">1</span> 连接条件 <span class="keyword">join</span> 表<span class="number">2</span> 别名<span class="number">2</span> <span class="keyword">on</span> 连接条件 <span class="keyword">where</span> 筛选条件</span><br></pre></td></tr></table></figure>
+<h1 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h1><h2 id="单表修改"><a href="#单表修改" class="headerlink" title="单表修改"></a>单表修改</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> 表名 <span class="keyword">set</span> 列=值，列=值... <span class="keyword">where</span> 筛选条件</span><br></pre></td></tr></table></figure>
+<h2 id="多表修改"><a href="#多表修改" class="headerlink" title="多表修改"></a>多表修改</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//sql92语法</span><br><span class="line"><span class="keyword">update</span> 表<span class="number">1</span> 别名<span class="number">1</span>，表<span class="number">2</span> 别名<span class="number">2</span> <span class="keyword">set</span> 列=值... <span class="keyword">where</span> 连接条件 <span class="keyword">and</span> 筛选条件</span><br><span class="line"></span><br><span class="line">//sql99语法</span><br><span class="line"><span class="keyword">update</span> 表<span class="number">1</span> 别名<span class="number">1</span> 连接类型 <span class="keyword">join</span> 表<span class="number">2</span> 别名<span class="number">2</span> <span class="keyword">on</span> 连接条件 <span class="keyword">set</span> 列=值... <span class="keyword">where</span> 筛选条件</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/18/redis%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/redis%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url">
-              
-                <span itemprop="name">redis学习记录</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-18T19:16:33+08:00"
-              content="2019-02-18" >
-          02-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/11/Mybatis%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Mybatis%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url">
-              
-                <span itemprop="name">Mybatis学习记录</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-11T10:23:54+08:00"
-              content="2019-02-11" >
-          02-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/21/springmvc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/springmvc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/" itemprop="url">
-              
-                <span itemprop="name">springmvc学习记录二</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-21T14:35:29+08:00"
-              content="2019-01-21" >
-          01-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/18/springmvc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/springmvc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/" itemprop="url">
-              
-                <span itemprop="name">springmvc学习记录一</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-18T16:50:29+08:00"
-              content="2019-01-18" >
-          01-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/16/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/" itemprop="url">
-              
-                <span itemprop="name">spring学习记录二</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-16T15:12:29+08:00"
-              content="2019-01-16" >
-          01-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/07/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/" itemprop="url">
-              
-                <span itemprop="name">spring学习记录一</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-07T16:33:49+08:00"
-              content="2019-01-07" >
-          01-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/16/MySQL/DDL/" rel="next" title="MySQL学习记录之----DDL语句">
+                <i class="fa fa-chevron-left"></i> MySQL学习记录之----DDL语句
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/24/MySQL/DQL/" rel="prev" title="MySQL学习记录之----DQL语句">
+                MySQL学习记录之----DQL语句 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -648,6 +479,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -668,8 +503,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -740,6 +584,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#插入"><span class="nav-number">1.</span> <span class="nav-text">插入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除"><span class="nav-number">2.</span> <span class="nav-text">删除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单表删除"><span class="nav-number">2.1.</span> <span class="nav-text">单表删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多表删除"><span class="nav-number">2.2.</span> <span class="nav-text">多表删除</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改"><span class="nav-number">3.</span> <span class="nav-text">修改</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单表修改"><span class="nav-number">3.1.</span> <span class="nav-text">单表修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多表修改"><span class="nav-number">3.2.</span> <span class="nav-text">多表修改</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -895,6 +755,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

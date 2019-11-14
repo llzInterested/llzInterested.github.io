@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="llz's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="虚拟机网络连接三种方式 桥连接 NAT 主机模式   基础安装vmtools 可以直接粘贴命令在windows 和 centos系统之间 可以设置windows和centos的共享文件夹  设置共享文件夹菜单栏 -&amp;gt; 虚拟机 -&amp;gt; 设置 -&amp;gt; 选项 -&amp;gt; 共享文件夹linux中共享文件夹在 ==&#x2F;mnt&#x2F;hgfs&#x2F;== 下  目录结构 ==bin==：存放指令 ==home">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux学习记录01">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;08&#x2F;24&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95&#x2F;Linux01&#x2F;index.html">
+<meta property="og:site_name" content="llz&#39;s blog">
+<meta property="og:description" content="虚拟机网络连接三种方式 桥连接 NAT 主机模式   基础安装vmtools 可以直接粘贴命令在windows 和 centos系统之间 可以设置windows和centos的共享文件夹  设置共享文件夹菜单栏 -&amp;gt; 虚拟机 -&amp;gt; 设置 -&amp;gt; 选项 -&amp;gt; 共享文件夹linux中共享文件夹在 ==&#x2F;mnt&#x2F;hgfs&#x2F;== 下  目录结构 ==bin==：存放指令 ==home">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;E0AB5B2165C245D68AA8349D5DECC7F0?method=download&amp;shareKey=fc3e8821a960abb4213ee0692c3f213d">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;369ECC2B3B31423FB0709672B42AD1E1?method=download&amp;shareKey=509e9021fb1b61c31cf38f76003674cd">
+<meta property="og:updated_time" content="2019-11-14T07:02:28.808Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;E0AB5B2165C245D68AA8349D5DECC7F0?method=download&amp;shareKey=fc3e8821a960abb4213ee0692c3f213d">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/24/Linux学习记录/Linux01/"/>
+
+
+
+
+
+  <title>Linux学习记录01 | llz's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">llz's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Linux01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="llz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="llz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux学习记录01</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T16:26:45+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="虚拟机网络连接三种方式"><a href="#虚拟机网络连接三种方式" class="headerlink" title="虚拟机网络连接三种方式"></a>虚拟机网络连接三种方式</h1><ul>
+<li>桥连接</li>
+<li>NAT</li>
+<li>主机模式</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/E0AB5B2165C245D68AA8349D5DECC7F0?method=download&shareKey=fc3e8821a960abb4213ee0692c3f213d" alt="虚拟机网络连接三种方式"></p>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="安装vmtools"><a href="#安装vmtools" class="headerlink" title="安装vmtools"></a>安装vmtools</h2><ul>
+<li>可以直接粘贴命令在windows 和 centos系统之间</li>
+<li>可以设置windows和centos的共享文件夹</li>
+</ul>
+<h2 id="设置共享文件夹"><a href="#设置共享文件夹" class="headerlink" title="设置共享文件夹"></a>设置共享文件夹</h2><p>菜单栏 -&gt; 虚拟机 -&gt; 设置 -&gt; 选项 -&gt; 共享文件夹<br>linux中共享文件夹在 ==<code>/mnt/hgfs/</code>== 下 </p>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><ul>
+<li>==bin==：存放指令</li>
+<li>==home==：存放普通用户的主目录，在linux中每个用户都有一个自己的目录，一般该目录以用户账号命名</li>
+<li>==root==：该目录为系统管理员的主目录</li>
+<li>==etc==：所有的系统管理所需要的配置文件和子目录</li>
+<li>==usr==：用户的很多应用程序和文件都放在这个目录下，类似windows下的program files目录</li>
+<li>==boot==：存放启动linux的核心文件，包括一些连接文件和镜像文件</li>
+<li>==media==：linux系统会自动识别一些设备，例如U盘、光驱等等，当识别后， linux<br>会把识别的设备挂载到这个目录下</li>
+<li>==mnt==：系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将外部的存储挂<br>载在/mnt/上，然后进入该目录就可以查看里面的内容了</li>
+<li>==dev==：类似于windows的设备管理器，把所有的硬件用文件的形式存储</li>
+<li>==usr/local==：这是另一个给主机额外安装软件所安装的目录。一般是通过编译源码方式安装的程序</li>
+<li>==opt==：这是给主机额外安装软件所摆放的目录。如安装ORACLE数据库就可放到该目录下。<br>默认为空</li>
+<li>==var==：这个目录中存放着在不断扩充着的东西，习惯将经常被修改的目录放在这个目录下。<br>包括各种日志文件</li>
+</ul>
+<h2 id="远程连接linux服务器"><a href="#远程连接linux服务器" class="headerlink" title="远程连接linux服务器"></a>远程连接linux服务器</h2><p>需要linux开启sshd服务，监听22端口 </p>
+<h2 id="vim的三种常见模式"><a href="#vim的三种常见模式" class="headerlink" title="vim的三种常见模式"></a>vim的三种常见模式</h2><h3 id="一般-正常模式"><a href="#一般-正常模式" class="headerlink" title="一般/正常模式"></a>一般/正常模式</h3><h3 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h3><h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><p><img src="https://note.youdao.com/yws/api/personal/file/369ECC2B3B31423FB0709672B42AD1E1?method=download&shareKey=509e9021fb1b61c31cf38f76003674cd" alt="模式间的转化"><br>其中</p>
+<ul>
+<li>==<code>:wq</code>== 表示保存并退出</li>
+<li>==<code>:q</code>== 退出(一般未编辑文件时退出使用)</li>
+<li>==<code>:q!</code>== 强制退出不保存</li>
+</ul>
+<h3 id="vim快捷键"><a href="#vim快捷键" class="headerlink" title="vim快捷键"></a>vim快捷键</h3><ul>
+<li>==<code>yy</code>==：copy当前行，yy前加数字n，表示copy当前行下面的n行，4yy表示copy当前行下面的4行(包含当前行)  </li>
+<li>==<code>p</code>==：粘贴</li>
+<li>==<code>dd</code>==：删除，其他同yy，也可加数字</li>
+<li>查找：在命令模式下输入 ==<code>/关键字</code>==，之后回车，查找下一个按 ==<code>n</code>==</li>
+<li>==<code>:set nu</code>==：设置行号</li>
+<li>==<code>:set nonu</code>==：取消行号</li>
+<li>==<code>G</code>==：跳到最后一行</li>
+<li>==<code>gg</code>==：跳到第一行</li>
+<li>跳到指定的行：<ol>
+<li>启用行号，==<code>:set nu</code>==</li>
+<li>输入要跳至的行数</li>
+<li>输入==<code>shift g</code>==</li>
+</ol>
+</li>
+<li>==<code>u</code>==：撤销上一步操作</li>
+</ul>
+<h2 id="linux指令"><a href="#linux指令" class="headerlink" title="linux指令"></a>linux指令</h2><h3 id="开关机"><a href="#开关机" class="headerlink" title="开关机"></a>开关机</h3><ul>
+<li>==<code>shutdown -h now</code>==：立刻关机</li>
+<li>==<code>shutdown -h 1</code>==：1分钟后关机</li>
+<li>==<code>shutdown -r now</code>==：立即重启</li>
+<li>==<code>halt</code>==：效果等价于关机</li>
+<li>==<code>reboot</code>==：重启系统</li>
+<li>==<code>sync</code>==：把内存的数据同步到磁盘，不管重启还是关机，先运行sync命令，防止数据丢失</li>
+<li>==<code>logout</code>==：注销用户</li>
+</ul>
+<h3 id="运行级别"><a href="#运行级别" class="headerlink" title="运行级别"></a>运行级别</h3><p>0：关机<br>1：单用户（找回丢失密码）<br>2：多用户无网络服务<br>3：多用户有网络服务<br>4：保留<br>5：图形界面<br>6：重启<br>系统的运行级别配置文件在 ==<code>/etc/inittab</code>== 下  </p>
+<ul>
+<li>==<code>init 级别</code>==：切换到指定运行级别</li>
+</ul>
+<h4 id="找回root密码"><a href="#找回root密码" class="headerlink" title="找回root密码"></a>找回root密码</h4><p>思路：进入单用户模式，然后修改root密码，因为进入单用户模式root不需要密码就可以进入<br>步骤：在系统启动时不停按 ==<code>enter</code>== 键，然后按 ==<code>e</code>==，之后选择第二项==kernel…==，再输入 ==<code>e</code>==,之后空格输入 ==<code>1</code>== 后 ==<code>enter</code>==，然后输入 ==<code>b</code>==</p>
+<h3 id="帮助指令"><a href="#帮助指令" class="headerlink" title="帮助指令"></a>帮助指令</h3><ul>
+<li>==<code>man 命令</code>==：查看某指令的用法</li>
+<li>==<code>help 命令</code>==：查看指令帮助信息</li>
+</ul>
+<h3 id="文件目录类"><a href="#文件目录类" class="headerlink" title="文件目录类"></a>文件目录类</h3><h4 id="显示查看"><a href="#显示查看" class="headerlink" title="显示查看"></a>显示查看</h4><ul>
+<li><p>==<code>pwd</code>==：显示当前工作目录的绝对路径</p>
+</li>
+<li><p>==<code>ls [选项] [目录或文件]</code>==：显示文件或目录，常用选项有：==<code>-a</code>== 显示所有文件和目录，包括隐藏的，==<code>-l</code>== 以列表形式显示</p>
+</li>
+<li><p>==<code>cat [选项] 要查看的文件</code>==：以只读方式查看文件内容，常用选项 ==<code>-n</code>== 显示行号，当文件较长时，使用 ==<code>cat -n 要查看的文件 | more</code>== 分页显示</p>
+</li>
+<li><p>==<code>more 要查看的文件</code>==：以全屏幕的方式按页显示文本文件的内容</p>
+<ol>
+<li>==<code>空格</code>==：向下翻页</li>
+<li>==<code>enter</code>==：向下翻一行</li>
+<li>==<code>q</code>==：立刻离开more，不再显示该文件内容</li>
+<li>==<code>ctrl + F</code>==：向下滚动一屏</li>
+<li>==<code>ctrl + B</code>==：返回上一屏</li>
+<li>==<code>=</code>==：输出当前行的行号</li>
+<li>==<code>:f</code>==：输出文件名和当前行的行号</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>==<code>less 要查看的文件</code>==：分屏查看文件内容，比more更强大，支持各种显示终端。less指令在显示文件内容时，并不是一次将整个文件加载之后才显示，而是根据显示需要加载内容，==对于显示大型文件具有较高的效率==</p>
+<ol>
+<li>==<code>空格</code>==：向下翻页</li>
+<li>==<code>[pagedown]</code>==：向下翻页</li>
+<li>==<code>[pageup]</code>==：向上翻页</li>
+<li>==<code>/字串</code>==：向下搜索字串，==<code>n</code>==：向下查找，==<code>N</code>==：向上查找</li>
+<li>==<code>?字串</code>==：向上搜寻字串的功能；==<code>n</code>==：向上查找； ==<code>N</code>==：向下查找</li>
+<li>==<code>q</code>==：离开less程序</li>
+</ol>
+</li>
+<li><p>==<code>echo [选项] [输出内容]</code>==：输出内容到控制台</p>
+</li>
+<li><p>==<code>head 文件</code>==：查看文件头10行的内容(默认)</p>
+</li>
+<li><p>==<code>head -n 5 文件</code>==：查看文件头5行的内容</p>
+</li>
+<li><p>==<code>tail 文件</code>==：查看文件尾10行内容(默认)</p>
+</li>
+<li><p>==<code>tail -n 5 文件</code>==：查看文件尾5行的内容</p>
+</li>
+<li><p>==<code>tail -f 文件</code>==：==实时追踪该文档的所有更新==</p>
+</li>
+</ul>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><ul>
+<li>==<code>rmdir [选项] 要删除的空目录</code>==：删除空目录，若目录下有内容无法删除</li>
+<li>==<code>rm -rf 要删除的目录</code>==：删除非空目录</li>
+<li>==<code>rm [选项] 要删除的文件或目录</code>==：删除文件或目录，常用选项 ==<code>-r</code>== 递归删除整个文件夹,==<code>-f</code>== 强制删除不提示</li>
+</ul>
+<h4 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h4><ul>
+<li>==<code>mkdir [选项] 要创建的目录</code>==：创建目录，常用选项有 ==<code>-p</code>== 创建多级目录</li>
+<li>==<code>touch 文件名称1 文件名称2 ...</code>==：创建空文件，可创建多个</li>
+</ul>
+<h4 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h4><ul>
+<li>==<code>cp [选项] 源文件 目的文件</code>==：常用选项 ==<code>-r</code>== 递归复制整个文件夹，在cp指令前加上==<code>\</code>==表示强制覆盖，即目的文件夹中已有同名的文件夹直接覆盖</li>
+</ul>
+<h4 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h4><ul>
+<li>==<code>mv</code>==：移动文件或重命名<ol>
+<li>==<code>mv 原文件名 新文件名</code>==：重命名</li>
+<li>==<code>mv 原位置 新位置</code>==：移动文件</li>
+</ol>
+</li>
+</ul>
+<h4 id="gt-和-gt-gt-指令"><a href="#gt-和-gt-gt-指令" class="headerlink" title="&gt;和&gt;&gt;指令"></a>&gt;和&gt;&gt;指令</h4><p>&gt;输出重定向(覆盖原内容)，&gt;&gt;追加</p>
+<ol>
+<li>==<code>ls -l &gt; 文件</code>==：将 ==<code>ls -l</code>== 显示的内容写入文件中(覆盖写)</li>
+<li>==<code>ls -al &gt;&gt; 文件</code>==：将 ==<code>ls -al</code>== 显示的内容追加到文件末尾</li>
+<li>==<code>cat 文件1 &gt; 文件2</code>==：文件1的内容覆盖到文件2</li>
+<li>==<code>echo &quot;内容&quot; &gt;&gt; 文件</code>==：将内容追加到文件末尾</li>
+</ol>
+<h4 id="ln指令"><a href="#ln指令" class="headerlink" title="ln指令"></a>ln指令</h4><p>软链接(符号链接)，类似于windows里的快捷方式， 主要存放了链接其他文件的路径<br>==<code>ln -s [原文件或目录] [软链接名]</code>==：给原文件创建软链接</p>
+<h4 id="history指令"><a href="#history指令" class="headerlink" title="history指令"></a>history指令</h4><ul>
+<li>==<code>history</code>==：查看已经执行过的历史命令</li>
+<li>==<code>history 5</code>==：查看已经执行过最近5条历史命令</li>
+<li>==<code>!n</code>==：其中n为数字，表示执行历史记录中第n条指令</li>
+</ul>
+<h3 id="时间日期类"><a href="#时间日期类" class="headerlink" title="时间日期类"></a>时间日期类</h3><h4 id="显示"><a href="#显示" class="headerlink" title="显示"></a>显示</h4><ul>
+<li>==<code>date</code>==：显示当前时间</li>
+<li>==<code>date +%Y</code>==：显示当前年份</li>
+<li>==<code>date +%m</code>==：显示当前月份</li>
+<li>==<code>date +%d</code>==：显示当前是哪一天</li>
+<li>==<code>date &quot;+%Y-%m-%d %H:%M:%S&quot;</code>==：显示年月日时分秒</li>
+<li>==<code>cal</code>==：显示日历</li>
+<li>==<code>cal 2018</code>==:显示2018年的所有日历</li>
+</ul>
+<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><ul>
+<li>==<code>date -s 字符串时间</code>==：设置日期</li>
+</ul>
+<h3 id="搜索查找类"><a href="#搜索查找类" class="headerlink" title="搜索查找类"></a>搜索查找类</h3><h4 id="find指令"><a href="#find指令" class="headerlink" title="find指令"></a>find指令</h4><p>从指定目录向下递归地遍历其各个子目录，将满足条件的文件或者目录显示在终端<br>==<code>find [搜索范围] [选项]</code>==<br>其中选项有:  </p>
+<ul>
+<li>==<code>-name 文件名</code>==： 按照指定的文件名查找模式查找文件</li>
+<li>==<code>-user 用户名</code>==： 查找属于指定用户名所有文件</li>
+<li>==<code>-size 文件大小</code>==： 按照指定的文件大小查找文件</li>
+<li>==<code>-size +20M</code>==： 查找大于20M的文件</li>
+<li>==<code>-size -20M</code>==： 查找小于20M的文件</li>
+<li>==<code>-size 20M</code>==： 查找等于20M的文件</li>
+</ul>
+<h4 id="locate指令"><a href="#locate指令" class="headerlink" title="locate指令"></a>locate指令</h4><ul>
+<li>快速定位文件路径  </li>
+<li>locate指令利用事先建立的系统中所有文件名称及路径的locate数据库实现快速定位给定的文件</li>
+<li>locate指令无需遍历整个文件系统，查询速度较快</li>
+<li>为了保证查询结果的准确度，管理员必须定期更新locate时刻</li>
+<li>由于locate指令基于数据库进行查询，所以第一次运行前，必须使用updatedb指令创建locate数据库<br>==<code>locate 搜索的文件</code>==</li>
+</ul>
+<h4 id="grep指令"><a href="#grep指令" class="headerlink" title="grep指令"></a>grep指令</h4><p>过滤查找，管道符，“|”，表示将前一个命令的处理结果输出传递给后面的命令处理<br>==<code>grep [选项] 查找内容 源文件</code>==<br>其中选项有：</p>
+<ul>
+<li>==<code>-n</code>==：显示匹配行及行号</li>
+<li>==<code>-i</code>==：忽略字母大小写</li>
+</ul>
+<p>==<code>cat hello.txt | grep -in yes</code>==：查找hello.txt中的yes</p>
+<h3 id="压缩和解压类"><a href="#压缩和解压类" class="headerlink" title="压缩和解压类"></a>压缩和解压类</h3><h4 id="gzip和gunzip指令"><a href="#gzip和gunzip指令" class="headerlink" title="gzip和gunzip指令"></a>gzip和gunzip指令</h4><ul>
+<li>==<code>gzip 文件</code>==：压缩文件，只能压缩为*.gz文件，不保留源文件</li>
+<li>==<code>gunzip 文件.gz</code>==：解压缩文件</li>
+</ul>
+<h4 id="zip和unzip指令"><a href="#zip和unzip指令" class="headerlink" title="zip和unzip指令"></a>zip和unzip指令</h4><ul>
+<li>==<code>zip [选项] XXX.zip 要压缩的内容</code>==：压缩，常用选项 ==<code>-r</code>== 递归压缩，即压缩成目录</li>
+<li>==<code>zip -r mypackage.zip /home/</code>==：将home目录下所有文件压缩成mypackage.zip文件</li>
+<li>==<code>unzip [选项] XXX.zip</code>==：解压缩，常用选项 ==<code>-d 目录</code>== 指定解压后的文件存放目录</li>
+</ul>
+<h4 id="tar指令"><a href="#tar指令" class="headerlink" title="tar指令"></a>tar指令</h4><p>打包，最后打包的文件是.tar.gz文件</p>
+<ul>
+<li><p>==<code>tar [选项] XXX.tar.gz 打包的内容</code>==：打包目录，常用选项：</p>
+<ul>
+<li>==<code>-c</code>== ：产生.tar打包文件</li>
+<li>==<code>-v</code>== ：显示详细信息</li>
+<li>==<code>-f</code>== ：指定压缩后的文件名</li>
+<li>==<code>-z</code>== ：打包同时压缩</li>
+<li>==<code>-x</code>== ：解包.tar文件</li>
+</ul>
+</li>
+<li><p>==<code>tar -zcvf a.tar.gz a1.txt a2.txt</code>==：将a1.txt和a2.txt压缩到a.tar.gz中</p>
+</li>
+<li><p>==<code>tar -zxvf a.tar.gz</code>==：解压a.tar.gz到当前目录</p>
+</li>
+<li><p>==<code>tar -zxvf a.tar.gz -C /opt/</code>==：解压a.tar.gz到opt目录，指定的目录必需存在</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/16/JS/String/" rel="next" title="JS常用API之----String">
+                <i class="fa fa-chevron-left"></i> JS常用API之----String
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/03/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Linux02/" rel="prev" title="Linux学习记录02">
+                Linux学习记录02 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="llz" />
+            
+              <p class="site-author-name" itemprop="name">llz</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7Carchive">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#虚拟机网络连接三种方式"><span class="nav-number">1.</span> <span class="nav-text">虚拟机网络连接三种方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础"><span class="nav-number">2.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装vmtools"><span class="nav-number">2.1.</span> <span class="nav-text">安装vmtools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置共享文件夹"><span class="nav-number">2.2.</span> <span class="nav-text">设置共享文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录结构"><span class="nav-number">2.3.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程连接linux服务器"><span class="nav-number">2.4.</span> <span class="nav-text">远程连接linux服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim的三种常见模式"><span class="nav-number">2.5.</span> <span class="nav-text">vim的三种常见模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一般-正常模式"><span class="nav-number">2.5.1.</span> <span class="nav-text">一般/正常模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑模式"><span class="nav-number">2.5.2.</span> <span class="nav-text">编辑模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令模式"><span class="nav-number">2.5.3.</span> <span class="nav-text">命令模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim快捷键"><span class="nav-number">2.5.4.</span> <span class="nav-text">vim快捷键</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux指令"><span class="nav-number">2.6.</span> <span class="nav-text">linux指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开关机"><span class="nav-number">2.6.1.</span> <span class="nav-text">开关机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行级别"><span class="nav-number">2.6.2.</span> <span class="nav-text">运行级别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#找回root密码"><span class="nav-number">2.6.2.1.</span> <span class="nav-text">找回root密码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#帮助指令"><span class="nav-number">2.6.3.</span> <span class="nav-text">帮助指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件目录类"><span class="nav-number">2.6.4.</span> <span class="nav-text">文件目录类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#显示查看"><span class="nav-number">2.6.4.1.</span> <span class="nav-text">显示查看</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除"><span class="nav-number">2.6.4.2.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建"><span class="nav-number">2.6.4.3.</span> <span class="nav-text">新建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制"><span class="nav-number">2.6.4.4.</span> <span class="nav-text">复制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动"><span class="nav-number">2.6.4.5.</span> <span class="nav-text">移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gt-和-gt-gt-指令"><span class="nav-number">2.6.4.6.</span> <span class="nav-text">&gt;和&gt;&gt;指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ln指令"><span class="nav-number">2.6.4.7.</span> <span class="nav-text">ln指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history指令"><span class="nav-number">2.6.4.8.</span> <span class="nav-text">history指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间日期类"><span class="nav-number">2.6.5.</span> <span class="nav-text">时间日期类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#显示"><span class="nav-number">2.6.5.1.</span> <span class="nav-text">显示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置"><span class="nav-number">2.6.5.2.</span> <span class="nav-text">设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索查找类"><span class="nav-number">2.6.6.</span> <span class="nav-text">搜索查找类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#find指令"><span class="nav-number">2.6.6.1.</span> <span class="nav-text">find指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#locate指令"><span class="nav-number">2.6.6.2.</span> <span class="nav-text">locate指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#grep指令"><span class="nav-number">2.6.6.3.</span> <span class="nav-text">grep指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩和解压类"><span class="nav-number">2.6.7.</span> <span class="nav-text">压缩和解压类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#gzip和gunzip指令"><span class="nav-number">2.6.7.1.</span> <span class="nav-text">gzip和gunzip指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zip和unzip指令"><span class="nav-number">2.6.7.2.</span> <span class="nav-text">zip和unzip指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tar指令"><span class="nav-number">2.6.7.3.</span> <span class="nav-text">tar指令</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">llz</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

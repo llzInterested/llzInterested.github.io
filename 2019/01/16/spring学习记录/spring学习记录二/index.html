@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,Spring," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="llz's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="注解扫描 配置文件中添加自动扫描配置  12345678910&amp;lt;!--    base-package：        指定一个需要扫描的基类包，Spring容器将会扫描这个基类包里及其子包中的所有类        当需要扫描多个包时, 可以使用逗号分隔    context:exclude-filter：指定排除指定表达式的组件--&amp;gt;&amp;lt;context:component-sca">
+<meta name="keywords" content="java,Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring学习记录二">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;01&#x2F;16&#x2F;spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95&#x2F;spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C&#x2F;index.html">
+<meta property="og:site_name" content="llz&#39;s blog">
+<meta property="og:description" content="注解扫描 配置文件中添加自动扫描配置  12345678910&amp;lt;!--    base-package：        指定一个需要扫描的基类包，Spring容器将会扫描这个基类包里及其子包中的所有类        当需要扫描多个包时, 可以使用逗号分隔    context:exclude-filter：指定排除指定表达式的组件--&amp;gt;&amp;lt;context:component-sca">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;11A1688299C944EBA55624C069D7CF56?method=download&amp;shareKey=9b4807aa7aa9bb0560f32818d6a29646">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;43DB8473B61348968A0B73845DC95C10?method=download&amp;shareKey=c1a021bdad8e5afaf310a1a25edc1c9f">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;C278D6F97F914D1EA1175402B97F7247?method=download&amp;shareKey=54ad0474098878f2beaeb8a0b6a71771">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;1AAF8457F8CD49298E71457819E11010?method=download&amp;shareKey=67e372e88e599acff9c637b901f3f3c7">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;BC5E5C44BD934C2B9229BA1318282169?method=download&amp;shareKey=94087f647726c08bbb5b49d807f4c61c">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;739AC9E31DF344C0BFFDA736392110DD?method=download&amp;shareKey=046e4479d63c96d009113aebfeb77dbf">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;C0B141A9A05E4F5EA6A074B7087B9B26?method=download&amp;shareKey=aa13c8bd22906c20185b1365dd464ae4">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;9735A6AD9F4749FAB2EE12EAC3E04B56?method=download&amp;shareKey=ddb5aab764fca8b150364713e1ce0b12">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;BC6EBBB45DDF44C99C202B9406ADA305?method=download&amp;shareKey=c7afdc5e50227573008d2bd65eb22c05">
+<meta property="og:updated_time" content="2019-11-14T07:07:09.542Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;11A1688299C944EBA55624C069D7CF56?method=download&amp;shareKey=9b4807aa7aa9bb0560f32818d6a29646">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/16/spring学习记录/spring学习记录二/"/>
+
+
+
+
+
+  <title>spring学习记录二 | llz's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">llz's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/16/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="llz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="llz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">spring学习记录二</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-16T15:12:29+08:00">
+                2019-01-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="注解扫描"><a href="#注解扫描" class="headerlink" title="注解扫描"></a>注解扫描</h1><ol>
+<li>配置文件中添加自动扫描配置</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    base-package：</span></span><br><span class="line"><span class="comment">        指定一个需要扫描的基类包，Spring容器将会扫描这个基类包里及其子包中的所有类</span></span><br><span class="line"><span class="comment">        当需要扫描多个包时, 可以使用逗号分隔</span></span><br><span class="line"><span class="comment">    context:exclude-filter：指定排除指定表达式的组件</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.llz"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span> <span class="attr">expression</span>=<span class="string">"org.springframework.stereotype.Repository"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    context:include-filter：指定包含指定表达式的组件，需和 use-default-filters="false"配合使用 </span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.llz"</span> <span class="attr">use-default-filters</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span> <span class="attr">expression</span>=<span class="string">"org.springframework.stereotype.Repository"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中<code>&lt;context:include-filter&gt;</code>和<code>&lt;context:exclude-filter&gt;</code>中<code>type</code>类型如下：</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/11A1688299C944EBA55624C069D7CF56?method=download&shareKey=9b4807aa7aa9bb0560f32818d6a29646" alt=""></p>
+<h1 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h1><p><img src="https://note.youdao.com/yws/api/personal/file/43DB8473B61348968A0B73845DC95C10?method=download&shareKey=c1a021bdad8e5afaf310a1a25edc1c9f" alt=""></p>
+<h2 id="需要的jar包"><a href="#需要的jar包" class="headerlink" title="需要的jar包"></a>需要的jar包</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>aopalliance<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aopalliance<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.aspectj<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aspectjweaver<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.8.13<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-aspects<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.0.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h2><ul>
+<li><em>切面(Aspect)</em>: 横切关注点(跨越应用程序多个模块的功能)被模块化的特殊对象，即<font color="blue">功能就是切面</font>，如上截图，有日志切面和验证切面</li>
+<li><em>通知(Advice)</em>:  切面必须要完成的工作，即切面中的每个方法</li>
+<li><em>目标(Target)</em>: 被通知的对象，即业务逻辑</li>
+<li><em>代理(Proxy)</em>: 向目标对象应用通知之后创建的对象</li>
+<li><em>连接点（Joinpoint）</em>：程序执行的某个特定位置：如类某个方法调用前、调用后、方法抛出异常后等。连接点由两个信息确定：方法表示的程序执行点；相对点表示的方位(方法执行前还是执行后)</li>
+<li><em>切点（pointcut）</em>：<ul>
+<li>即原有的功能</li>
+<li>切点和连接点不是一对一的关系，一个切点匹配多个连接点，切点通过<code>org.springframework.aop.Pointcut</code>接口进行描述，它使用类和方法作为连接点的查询条件</li>
+</ul>
+</li>
+</ul>
+<h2 id="AOP实现"><a href="#AOP实现" class="headerlink" title="AOP实现"></a>AOP实现</h2><h3 id="1-启用AspectJ注解"><a href="#1-启用AspectJ注解" class="headerlink" title="1.启用AspectJ注解"></a>1.启用AspectJ注解</h3><ol>
+<li>导入jar包<code>aopalliance.jar</code>、<code>aspectj.weaver.jar</code> 和 <code>spring-aspects.jar</code></li>
+<li>在配置文件中加入aop命名空间并加入<code>&lt;aop:aspectj-autoproxy&gt;</code></li>
+<li>把横切关注点的代码抽象到切面的类中<ul>
+<li>切面首先是一个IOC中的bean，加入<code>@component</code>注解</li>
+<li>之后加入<code>@Aspect</code>注解声明这是个切面</li>
+</ul>
+</li>
+<li>在类中声明各种通知</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//把这个类声明为一个切面，先放入IOC容器，再声明为切面</span></span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogginAspect</span> </span>&#123;</span><br><span class="line">    <span class="comment">//声明该方法是前置通知，在目标方法开始之前执行</span></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"execution(public int com.llz.aop.CalculatorImpl.add(int,int))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        String methodName = joinPoint.getSignature().getName();</span><br><span class="line">        List&lt;Object&gt; args = Arrays.asList(joinPoint.getArgs());</span><br><span class="line">        System.out.println(<span class="string">"方法名称："</span>+methodName+<span class="string">"传的参数"</span>+args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="通知类型"><a href="#通知类型" class="headerlink" title="通知类型"></a>通知类型</h4><ul>
+<li><em>@Before</em>: 前置通知, 在方法执行之前执行</li>
+<li><em>@After</em>: 后置通知, 在方法执行之后执行(无论是否出现异常)，在后置通知中还不能访问目标方法执行的结果(因为方法可能会出异常) </li>
+<li><em>@AfterRunning</em>: 返回通知, 在方法返回结果之后执行,返回通知中可以访问方法的返回值</li>
+<li><em>@AfterThrowing</em>: 异常通知, 在方法抛出异常之后，可以访问异常对象，且可以指定在出现特定异常时执行通知代码</li>
+<li><em>@Around</em>: 环绕通知, 围绕着方法执行，功能最强，包含了前置，后置，返回，异常通知</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//前置通知</span></span><br><span class="line">    result = method.invoke(target,args);</span><br><span class="line">    <span class="comment">//返回通知</span></span><br><span class="line">&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    <span class="comment">//异常通知</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//后置通知</span></span><br></pre></td></tr></table></figure>
+
+<p>环绕通知demo如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 环绕通知需带ProceedingJoinPoint类型的参数</span></span><br><span class="line"><span class="comment">     * 环绕通知类似于动态代理的全过程：ProceedingJoinPoint类型的参数可以决定是否执行目标方法</span></span><br><span class="line"><span class="comment">     * 环绕通知必须有返回值，且返回值为目标方法的返回值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> pjd</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Around</span>(<span class="string">"execution(public int com.llz.aop.CalculatorImpl.add(int,int))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">aroundMethod</span><span class="params">(ProceedingJoinPoint pjd)</span></span>&#123;</span><br><span class="line">        Object result = <span class="keyword">null</span>;</span><br><span class="line">        String methodName = pjd.getSignature().getName();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"前置通知，方法名"</span>+methodName+<span class="string">"，方法参数"</span>+Arrays.asList(pjd.getArgs()));</span><br><span class="line">            result = pjd.proceed();     <span class="comment">//执行目标方法</span></span><br><span class="line">            System.out.println(<span class="string">"返回通知，返回结果："</span>+result);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable throwable) &#123;</span><br><span class="line">            throwable.printStackTrace();</span><br><span class="line">            System.out.println(<span class="string">"异常通知，异常为"</span>+throwable);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"后置通知"</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="切入点表达式"><a href="#切入点表达式" class="headerlink" title="切入点表达式"></a>切入点表达式</h4><ul>
+<li><code>execution * com.llz.spring.ArithmeticCalculator.*(..)</code>      <ul>
+<li>匹配 ArithmeticCalculator 中声明的所有方法</li>
+<li>第一个 <code>*</code> 代表任意修饰符及任意返回值</li>
+<li>第二个 <code>*</code> 代表任意方法</li>
+<li><code>..</code> 匹配任意数量的参数         </li>
+<li>若目标类与接口与该切面在同一个包中, 可以省略包名</li>
+</ul>
+</li>
+<li><code>execution public * ArithmeticCalculator.*(..)</code>：匹配 ArithmeticCalculator 接口的所有公有方法</li>
+<li><code>execution public double ArithmeticCalculator.*(..)</code>:匹配 ArithmeticCalculator 中返回 double 类型数值的方法</li>
+<li><code>execution public double ArithmeticCalculator.*(double, ..)</code>: 匹配第一个参数为double类型的方法,<code>..</code>匹配任意数量任意类型的参数</li>
+<li><code>execution public double ArithmeticCalculator.*(double, double)</code>: 匹配参数类型为 double, double 类型的方法</li>
+</ul>
+<h5 id="重用切入点表达式"><a href="#重用切入点表达式" class="headerlink" title="重用切入点表达式"></a>重用切入点表达式</h5><p>当同一个切点表达式可能会在多个通知中重复出现时使用</p>
+<ol>
+<li>通过 <code>@Pointcut</code>注解将一个切入点声明成简单的方法,切入点的方法体通常是空的</li>
+<li>切入点方法的访问控制符同时也控制着这个切入点的可见性</li>
+<li>其他通知可以通过方法名称引入该切入点</li>
+</ol>
+<p><img src="https://note.youdao.com/yws/api/personal/file/C278D6F97F914D1EA1175402B97F7247?method=download&shareKey=54ad0474098878f2beaeb8a0b6a71771" alt=""></p>
+<h4 id="指定切面优先级"><a href="#指定切面优先级" class="headerlink" title="指定切面优先级"></a>指定切面优先级</h4><p>在切面类上加注解<code>@Order(num)</code>,其中num为数字，数值越小优先级越高</p>
+<h4 id="基于xml配置声明切面"><a href="#基于xml配置声明切面" class="headerlink" title="基于xml配置声明切面"></a>基于xml配置声明切面</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--aop配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置切点表达式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">"pointcut"</span> <span class="attr">expression</span>=<span class="string">"execution(* com.llz.aop.*(..))"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置切面及通知--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:aspect</span> <span class="attr">ref</span>=<span class="string">"指向切面类"</span> <span class="attr">order</span>=<span class="string">"2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:before</span> <span class="attr">method</span>=<span class="string">"前置通知的方法"</span> <span class="attr">pointcut-ref</span>=<span class="string">"pointcut"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:after</span> <span class="attr">method</span>=<span class="string">"后置通知的方法"</span> <span class="attr">pointcut-ref</span>=<span class="string">"pointcut"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:after-returning</span> <span class="attr">method</span>=<span class="string">"切面类中返回通知的方法"</span> <span class="attr">pointcut-ref</span>=<span class="string">"pointcut"</span> <span class="attr">returning</span>=<span class="string">"result"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:after-throwing</span> <span class="attr">method</span>=<span class="string">"切面类中异常通知的方法"</span> <span class="attr">pointcut-ref</span>=<span class="string">"pointcut"</span> <span class="attr">throwing</span>=<span class="string">"e"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">aop:aspect</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-schema-base方式"><a href="#2-schema-base方式" class="headerlink" title="2.schema-base方式"></a>2.schema-base方式</h3><p><a href="https://blog.csdn.net/qq_41617744/article/details/80279675" target="_blank" rel="noopener">schema-base方式实现aop</a></p>
+<h1 id="Spring的事务管理"><a href="#Spring的事务管理" class="headerlink" title="Spring的事务管理"></a>Spring的事务管理</h1><h2 id="声明式事务"><a href="#声明式事务" class="headerlink" title="声明式事务"></a>声明式事务</h2><ul>
+<li><code>声明式事务</code>：事务控制代码已经由spring写好，程序员只需要声明出哪些方法需要进行事务控制和如何进行事务控制</li>
+<li><code>编程式事务</code>：由程序员编写事务控制代码</li>
+</ul>
+<h2 id="基于注解使用"><a href="#基于注解使用" class="headerlink" title="基于注解使用"></a>基于注解使用</h2><h3 id="1-需要导入的jar包"><a href="#1-需要导入的jar包" class="headerlink" title="1.需要导入的jar包"></a>1.需要导入的jar包</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.0.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-tx<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.0.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-配置事务管理器"><a href="#2-配置事务管理器" class="headerlink" title="2.配置事务管理器"></a>2.配置事务管理器</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置事务管理器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--启用事务注解--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-在需要使用事务的方法前加注解-Transactional"><a href="#3-在需要使用事务的方法前加注解-Transactional" class="headerlink" title="3.在需要使用事务的方法前加注解@Transactional"></a>3.在需要使用事务的方法前加注解@Transactional</h3><h2 id="基于配置文件使用"><a href="#基于配置文件使用" class="headerlink" title="基于配置文件使用"></a>基于配置文件使用</h2><h3 id="1-配置事务管理器"><a href="#1-配置事务管理器" class="headerlink" title="1.配置事务管理器"></a>1.配置事务管理器</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置事务管理器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-配置事务属性"><a href="#2-配置事务属性" class="headerlink" title="2.配置事务属性"></a>2.配置事务属性</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置事务属性--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tx:advice</span> <span class="attr">id</span>=<span class="string">"txAdvice"</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;tx:method name="*"/&gt;--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"get*"</span> <span class="attr">read-only</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"find*"</span> <span class="attr">read-only</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"purchase"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRES_NEW"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tx:advice</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--配置事务切入点，并管理事务属性--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">expression</span>=<span class="string">"execution(* com.llz.*)"</span> <span class="attr">id</span>=<span class="string">"txPointCut"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">advice-ref</span>=<span class="string">"txAdvice"</span> <span class="attr">pointcut-ref</span>=<span class="string">"txPointCut"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="事务的传播行为propagation"><a href="#事务的传播行为propagation" class="headerlink" title="事务的传播行为propagation"></a>事务的传播行为propagation</h2><ul>
+<li>当事务方法被另一个事务方法调用时,必须指定事务应该如何传播. 例如: 方法可能继续在现有事务中运行, 也可能开启一个新事务, 并在自己的事务中运行</li>
+<li>事务的传播行为可以由传播属性指定.Spring定义了7种类传播行为,可以在<code>@Transactional</code> 注解的 <code>propagation</code> 属性中定义</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/1AAF8457F8CD49298E71457819E11010?method=download&shareKey=67e372e88e599acff9c637b901f3f3c7" alt=""></p>
+<h3 id="REQUIRED"><a href="#REQUIRED" class="headerlink" title="REQUIRED"></a>REQUIRED</h3><p>demo：当购买2本书但只够付一本书的钱时，2本书都买不了<br><img src="https://note.youdao.com/yws/api/personal/file/BC5E5C44BD934C2B9229BA1318282169?method=download&shareKey=94087f647726c08bbb5b49d807f4c61c" alt=""> </p>
+<h3 id="REQUIRED-NEW"><a href="#REQUIRED-NEW" class="headerlink" title="REQUIRED_NEW"></a>REQUIRED_NEW</h3><p>demo：当购买2本书但只够付一本书的钱时，可以买第一本<br><img src="https://note.youdao.com/yws/api/personal/file/739AC9E31DF344C0BFFDA736392110DD?method=download&shareKey=046e4479d63c96d009113aebfeb77dbf" alt=""></p>
+<h2 id="事务的隔离级别isolation"><a href="#事务的隔离级别isolation" class="headerlink" title="事务的隔离级别isolation"></a>事务的隔离级别isolation</h2><p>在多线程或并发访问下如何保证访问到的数据具有完整性</p>
+<h3 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h3><h4 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a>脏读</h4><ol>
+<li>一个事务A读取到另一个事务B中未提交的数据</li>
+<li>B事务中数据可能改变了，此时A事务读取的数据可能和数据库中数据不一致</li>
+<li>读取脏数据的过程叫脏读</li>
+</ol>
+<h4 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h4><ul>
+<li>主要针对某行数据(或行中某列)</li>
+<li>主要针对修改操作</li>
+<li>2次读取在同一个事务内</li>
+<li>当事务A第一次读取事务后，事务B对事务A读取的数据进行修改，事务A中再次读取的数据和之前读取的数据不一致，这个过程叫不可重复读</li>
+</ul>
+<h4 id="幻读"><a href="#幻读" class="headerlink" title="幻读"></a>幻读</h4><ul>
+<li>主要针对新增或删除</li>
+<li>2次事务的结果</li>
+<li>事务A按照特定条件查询出结果，事务B新增了一条符合条件的数据，事务A中查询的数据和数据库中数据不一致，事务A好像出行了幻觉，这种情况叫幻读</li>
+</ul>
+<h3 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h3><p><img src="https://note.youdao.com/yws/api/personal/file/C0B141A9A05E4F5EA6A074B7087B9B26?method=download&shareKey=aa13c8bd22906c20185b1365dd464ae4" alt=""></p>
+<ul>
+<li>事务的隔离级别可以在<code>@Transactional</code>注解的<code>isolation</code>属性中定义</li>
+<li>事务的隔离级别要得到底层数据库引擎的支持,而不是应用程序或者框架的支持.</li>
+<li>Oracle 支持的 2种事务隔离级别：<code>READ_COMMITED</code>,<code>SERIALIZABLE</code></li>
+<li>Mysql 支持 4种事务隔离级别.</li>
+</ul>
+<h2 id="事务的回滚规则-rollbackFor-noRollbackFor"><a href="#事务的回滚规则-rollbackFor-noRollbackFor" class="headerlink" title="事务的回滚规则(rollbackFor,noRollbackFor)"></a>事务的回滚规则(rollbackFor,noRollbackFor)</h2><ul>
+<li>默认情况下只有<code>未检查异常(RuntimeException和Error类型的异常)</code>会导致事务回滚. 而<code>受检查异常</code>不会</li>
+<li>事务的回滚规则可以通过 <code>@Transactional</code> 注解的 <code>rollbackFor</code> 和<code>noRollbackFor</code>属性来定义.这两个属性被声明为 <code>Class[]</code> 类型的, 因此可以为这两个属性指定多个异常类<ul>
+<li><code>rollbackFor</code>:  遇到时必须进行回滚</li>
+<li><code>noRollbackFor</code>: 一组异常类，遇到时必须不回滚</li>
+</ul>
+</li>
+</ul>
+<p>demo如下：<br><img src="https://note.youdao.com/yws/api/personal/file/9735A6AD9F4749FAB2EE12EAC3E04B56?method=download&shareKey=ddb5aab764fca8b150364713e1ce0b12" alt=""></p>
+<h2 id="事务的超时-timeout-和只读属性-readOnly"><a href="#事务的超时-timeout-和只读属性-readOnly" class="headerlink" title="事务的超时(timeout)和只读属性(readOnly)"></a>事务的超时(timeout)和只读属性(readOnly)</h2><ul>
+<li>由于事务可以在行和表上获得锁,因此长事务会占用资源,并对整体性能产生影响. </li>
+<li>如果一个事物只读取数据但不做修改,数据库引擎可以对这个事务进行优化.</li>
+<li><code>超时事务属性</code>:事务在强制回滚之前可以保持多久.这样可以防止长期运行的事务占用资源.单位：s</li>
+<li><code>只读事务属性</code>:表示这个事务只读取数据但不更新数据,这样可以帮助数据库引擎优化事务</li>
+</ul>
+<p>demo如下：<br><img src="https://note.youdao.com/yws/api/personal/file/BC6EBBB45DDF44C99C202B9406ADA305?method=download&shareKey=c7afdc5e50227573008d2bd65eb22c05" alt=""></p>
+<h1 id="Spring常用注解总结"><a href="#Spring常用注解总结" class="headerlink" title="Spring常用注解总结"></a>Spring常用注解总结</h1><h2 id="Component"><a href="#Component" class="headerlink" title="@Component"></a>@Component</h2><p>创建类对象，相当于配置<bean/></p>
+<h2 id="Service"><a href="#Service" class="headerlink" title="@Service"></a>@Service</h2><p>现在与@Component功能相同，建议写在ServiceImpl类上</p>
+<h2 id="Repository"><a href="#Repository" class="headerlink" title="@Repository"></a>@Repository</h2><p>现在与@Component功能相同，建议写在数据访问层类上</p>
+<h2 id="Controller"><a href="#Controller" class="headerlink" title="@Controller"></a>@Controller</h2><p>现在与@Component功能相同，写在控制器类上</p>
+<h2 id="Resource-jdk中提供的"><a href="#Resource-jdk中提供的" class="headerlink" title="@Resource(jdk中提供的)"></a>@Resource(jdk中提供的)</h2><ul>
+<li>默认按照<code>byName</code>注入</li>
+<li>若没有名称对象，按照<code>byType</code>注入</li>
+<li>建议对象名称和spring容器中对象名相同</li>
+</ul>
+<h2 id="Autowired-Spring提供的"><a href="#Autowired-Spring提供的" class="headerlink" title="@Autowired(Spring提供的)"></a>@Autowired(Spring提供的)</h2><p>默认按照<code>byType</code>注入</p>
+<h2 id="Value"><a href="#Value" class="headerlink" title="@Value()"></a>@Value()</h2><p>获取properties文件中内容</p>
+<h2 id="PointCut"><a href="#PointCut" class="headerlink" title="@PointCut()"></a>@PointCut()</h2><p>定义切点</p>
+<h2 id="Aspect"><a href="#Aspect" class="headerlink" title="@Aspect()"></a>@Aspect()</h2><p>定义切面类</p>
+<h2 id="Before"><a href="#Before" class="headerlink" title="@Before()"></a>@Before()</h2><p>前置通知</p>
+<h2 id="After"><a href="#After" class="headerlink" title="After()"></a>After()</h2><p>后置通知</p>
+<h2 id="AfterRuturning"><a href="#AfterRuturning" class="headerlink" title="AfterRuturning()"></a>AfterRuturning()</h2><p>返回通知</p>
+<h2 id="AfterThrowing"><a href="#AfterThrowing" class="headerlink" title="AfterThrowing()"></a>AfterThrowing()</h2><p>异常通知</p>
+<h2 id="Arround"><a href="#Arround" class="headerlink" title="@Arround()"></a>@Arround()</h2><p>环绕通知</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/Spring/" rel="tag"># Spring</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/07/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/" rel="next" title="spring学习记录一">
+                <i class="fa fa-chevron-left"></i> spring学习记录一
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/18/springmvc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/springmvc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/" rel="prev" title="springmvc学习记录一">
+                springmvc学习记录一 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="llz" />
+            
+              <p class="site-author-name" itemprop="name">llz</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7Carchive">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注解扫描"><span class="nav-number">1.</span> <span class="nav-text">注解扫描</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AOP"><span class="nav-number">2.</span> <span class="nav-text">AOP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#需要的jar包"><span class="nav-number">2.1.</span> <span class="nav-text">需要的jar包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#名词"><span class="nav-number">2.2.</span> <span class="nav-text">名词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP实现"><span class="nav-number">2.3.</span> <span class="nav-text">AOP实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-启用AspectJ注解"><span class="nav-number">2.3.1.</span> <span class="nav-text">1.启用AspectJ注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通知类型"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">通知类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#切入点表达式"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">切入点表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#重用切入点表达式"><span class="nav-number">2.3.1.2.1.</span> <span class="nav-text">重用切入点表达式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指定切面优先级"><span class="nav-number">2.3.1.3.</span> <span class="nav-text">指定切面优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于xml配置声明切面"><span class="nav-number">2.3.1.4.</span> <span class="nav-text">基于xml配置声明切面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-schema-base方式"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.schema-base方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring的事务管理"><span class="nav-number">3.</span> <span class="nav-text">Spring的事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明式事务"><span class="nav-number">3.1.</span> <span class="nav-text">声明式事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于注解使用"><span class="nav-number">3.2.</span> <span class="nav-text">基于注解使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-需要导入的jar包"><span class="nav-number">3.2.1.</span> <span class="nav-text">1.需要导入的jar包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-配置事务管理器"><span class="nav-number">3.2.2.</span> <span class="nav-text">2.配置事务管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在需要使用事务的方法前加注解-Transactional"><span class="nav-number">3.2.3.</span> <span class="nav-text">3.在需要使用事务的方法前加注解@Transactional</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于配置文件使用"><span class="nav-number">3.3.</span> <span class="nav-text">基于配置文件使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-配置事务管理器"><span class="nav-number">3.3.1.</span> <span class="nav-text">1.配置事务管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-配置事务属性"><span class="nav-number">3.3.2.</span> <span class="nav-text">2.配置事务属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的传播行为propagation"><span class="nav-number">3.4.</span> <span class="nav-text">事务的传播行为propagation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#REQUIRED"><span class="nav-number">3.4.1.</span> <span class="nav-text">REQUIRED</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REQUIRED-NEW"><span class="nav-number">3.4.2.</span> <span class="nav-text">REQUIRED_NEW</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的隔离级别isolation"><span class="nav-number">3.5.</span> <span class="nav-text">事务的隔离级别isolation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存在的问题"><span class="nav-number">3.5.1.</span> <span class="nav-text">存在的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#脏读"><span class="nav-number">3.5.1.1.</span> <span class="nav-text">脏读</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不可重复读"><span class="nav-number">3.5.1.2.</span> <span class="nav-text">不可重复读</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#幻读"><span class="nav-number">3.5.1.3.</span> <span class="nav-text">幻读</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隔离级别"><span class="nav-number">3.5.2.</span> <span class="nav-text">隔离级别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的回滚规则-rollbackFor-noRollbackFor"><span class="nav-number">3.6.</span> <span class="nav-text">事务的回滚规则(rollbackFor,noRollbackFor)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的超时-timeout-和只读属性-readOnly"><span class="nav-number">3.7.</span> <span class="nav-text">事务的超时(timeout)和只读属性(readOnly)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring常用注解总结"><span class="nav-number">4.</span> <span class="nav-text">Spring常用注解总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Component"><span class="nav-number">4.1.</span> <span class="nav-text">@Component</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Service"><span class="nav-number">4.2.</span> <span class="nav-text">@Service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Repository"><span class="nav-number">4.3.</span> <span class="nav-text">@Repository</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Controller"><span class="nav-number">4.4.</span> <span class="nav-text">@Controller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Resource-jdk中提供的"><span class="nav-number">4.5.</span> <span class="nav-text">@Resource(jdk中提供的)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Autowired-Spring提供的"><span class="nav-number">4.6.</span> <span class="nav-text">@Autowired(Spring提供的)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Value"><span class="nav-number">4.7.</span> <span class="nav-text">@Value()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PointCut"><span class="nav-number">4.8.</span> <span class="nav-text">@PointCut()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Aspect"><span class="nav-number">4.9.</span> <span class="nav-text">@Aspect()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Before"><span class="nav-number">4.10.</span> <span class="nav-text">@Before()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#After"><span class="nav-number">4.11.</span> <span class="nav-text">After()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AfterRuturning"><span class="nav-number">4.12.</span> <span class="nav-text">AfterRuturning()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AfterThrowing"><span class="nav-number">4.13.</span> <span class="nav-text">AfterThrowing()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arround"><span class="nav-number">4.14.</span> <span class="nav-text">@Arround()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">llz</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -88,12 +88,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="llz&#39;s blog">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;index.html">
+<meta name="description" content="组管理和权限管理用户和组用户管理 ==useradd [选项]  用户名==：添加用户，创建用户成功后会自动创建和用户同名的家目录（不指定用户组的情况下） ==useradd -g 用户组 用户名==：添加用户同时指定该用户所在的用户组 ==useradd -d 指定目录 用户名==：添加用户并指定家目录 ==passwd 用户名==：给用户指定密码 ==userdel 用户名==：删除用户保留家">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux学习记录02">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;09&#x2F;03&#x2F;Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95&#x2F;Linux02&#x2F;index.html">
 <meta property="og:site_name" content="llz&#39;s blog">
+<meta property="og:description" content="组管理和权限管理用户和组用户管理 ==useradd [选项]  用户名==：添加用户，创建用户成功后会自动创建和用户同名的家目录（不指定用户组的情况下） ==useradd -g 用户组 用户名==：添加用户同时指定该用户所在的用户组 ==useradd -d 指定目录 用户名==：添加用户并指定家目录 ==passwd 用户名==：给用户指定密码 ==userdel 用户名==：删除用户保留家">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;088880AB4D0D40518C76431EB894E6A5?method=download&amp;shareKey=77b591189f3d496de95289d4ce682a7a">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;057FE3D11C93408C901D2EF977493BDE?method=download&amp;shareKey=8a6bd02ce8d3544e9a76bdfc494ab324">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;AA31E33F23514DBB96DF2CBC7EF4F77A?method=download&amp;shareKey=05ce7a11edb74614eeec2b1e6cd6a191">
+<meta property="og:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;A7D44786D0524495B91378341465CE0A?method=download&amp;shareKey=5a6fd7cd6c3a56fb94f0f2039fa4c6d9">
+<meta property="og:updated_time" content="2019-11-14T07:02:32.076Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;note.youdao.com&#x2F;yws&#x2F;api&#x2F;personal&#x2F;file&#x2F;088880AB4D0D40518C76431EB894E6A5?method=download&amp;shareKey=77b591189f3d496de95289d4ce682a7a">
 
 
 
@@ -123,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/03/Linux学习记录/Linux02/"/>
 
 
 
 
 
-  <title>归档 | llz's blog</title>
+  <title>Linux学习记录02 | llz's blog</title>
   
 
 
@@ -148,7 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
 
@@ -277,370 +286,287 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/03/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Linux02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="llz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="llz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Linux学习记录02</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-03T14:17:28+08:00">
+                2018-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 23 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/22/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%89/" itemprop="url">
-              
-                <span itemprop="name">shiro学习记录一</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-22T10:24:23+08:00"
-              content="2019-02-22" >
-          02-22
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/21/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/" itemprop="url">
-              
-                <span itemprop="name">shiro学习记录一</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-21T15:27:58+08:00"
-              content="2019-02-21" >
-          02-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/20/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/shiro%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/" itemprop="url">
-              
-                <span itemprop="name">shiro学习记录一</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-20T11:32:38+08:00"
-              content="2019-02-20" >
-          02-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="组管理和权限管理"><a href="#组管理和权限管理" class="headerlink" title="组管理和权限管理"></a>组管理和权限管理</h1><h2 id="用户和组"><a href="#用户和组" class="headerlink" title="用户和组"></a>用户和组</h2><h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><ul>
+<li>==<code>useradd [选项]  用户名</code>==：添加用户，创建用户成功后会自动创建和用户同名的家目录（不指定用户组的情况下）</li>
+<li>==<code>useradd -g 用户组 用户名</code>==：添加用户同时指定该用户所在的用户组</li>
+<li>==<code>useradd -d 指定目录 用户名</code>==：添加用户并指定家目录</li>
+<li>==<code>passwd 用户名</code>==：给用户指定密码</li>
+<li>==<code>userdel 用户名</code>==：删除用户保留家目录</li>
+<li>==<code>userdel -r 用户名</code>==：删除用户和家目录</li>
+<li>==<code>id 用户名</code>==：查看用户信息</li>
+<li>==<code>su - 用户名</code>==：切换用户</li>
+<li>==<code>exit</code>==：退出当前用户，返回上一个用户</li>
+<li>==<code>whoami</code>==：查看当前是哪个用户</li>
+</ul>
+<h3 id="用户组"><a href="#用户组" class="headerlink" title="用户组"></a>用户组</h3><p>类似角色，系统可以对有共性的多个用户进行统一管理</p>
+<ul>
+<li>==<code>groupadd 组名</code>==：添加一个用户组</li>
+<li>==<code>groupdel 组名</code>==：删除组</li>
+<li>==<code>usermod -g 用户组 用户名</code>==：修改用户组</li>
+<li>==<code>usermod -d 目录名 用户名</code>==：修改用户登录的初始目录</li>
+</ul>
+<h3 id="用户和组相关文件"><a href="#用户和组相关文件" class="headerlink" title="用户和组相关文件"></a>用户和组相关文件</h3><ul>
+<li>用户配置文件(用户信息)，==<code>/etc/passwd</code>==，其中每行含义：==<code>用户名：口令：用户标识号：组标识号：注释性描述：家目录：登录shell</code>==</li>
+<li>组配置文件(组信息)，==<code>/etc/group</code>==，其中每行含义：==<code>组名：口令：组标识号：组内用户列表</code>==</li>
+<li>口令配置文件(密码和登录信息，加密)，==<code>/etc/shadow</code>==，其中每行含义：==<code>登录名：加密口令：最后一次修改时间：最小时间间隔：最大时间间隔：警告时间：不活动时间：失效时间：标志</code>==</li>
+</ul>
+<h3 id="查看文件所有者"><a href="#查看文件所有者" class="headerlink" title="查看文件所有者"></a>查看文件所有者</h3><p>==<code>ls -ahl</code>==：其中a表示全部，h表示以人易理解的格式列出文件大小，l表示除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来</p>
+<h3 id="修改文件所有者和所在组"><a href="#修改文件所有者和所在组" class="headerlink" title="修改文件所有者和所在组"></a>修改文件所有者和所在组</h3><ul>
+<li>==<code>chown [选项] 用户名 文件名</code>==：修改文件所有者</li>
+<li>==<code>chgrp [选项] 组名 文件名</code>==：修改文件所在组</li>
+<li>==<code>chown [选项] 用户名:组名 文件名</code>==：同时改变文件所有者和所在组</li>
+</ul>
+<p>其中选项 ==-R== 如果是目录，则使其下所有子文件或目录递归生效</p>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><p>==<code>ls -l</code>== 中显示的内容如下：  </p>
+<blockquote>
+<p>-rwxrw-r– 1 root root 1213 Feb 2 09:39 abc</p>
+</blockquote>
+<ul>
+<li>第0位：确定文件类型，-表示普通文件，d表示目录，l表示软链接，c表示字符设备(如键盘，鼠标)，b表示块文件(如硬盘)</li>
+<li>1-3位：表示文件所有者的权限，r表示读，w表示写，x(execute)表示可执行</li>
+<li>4-6位：表示文件所在组的权限</li>
+<li>7-9位：表示文件其他组的用户的权限</li>
+<li>权限后的1如果是文件，表示硬链接的数，如果是目录则表示该目录的子目录个数</li>
+<li>第一个root表示文件的所有者</li>
+<li>第二个root表示文件所在组</li>
+<li>1213表示文件大小，单位字节，如果是目录，则大小显示为4096</li>
+</ul>
+<h3 id="rwx权限详解"><a href="#rwx权限详解" class="headerlink" title="rwx权限详解"></a>rwx权限详解</h3><h4 id="rwx作用于文件"><a href="#rwx作用于文件" class="headerlink" title="rwx作用于文件"></a>rwx作用于文件</h4><ul>
+<li>==r== ：可读(read)</li>
+<li>==w== ：可写(write)，可以修改，但是不代表可以删除该文件，删除一个文件的前提条件是对该文件所在的目录有写权限，才能删除该文件.</li>
+<li>==x== ：可执行(execute):可以被执行</li>
+</ul>
+<h4 id="rwx作用于目录"><a href="#rwx作用于目录" class="headerlink" title="rwx作用于目录"></a>rwx作用于目录</h4><ul>
+<li>==r== ：可读(read)，可以读取， ls查看目录内容</li>
+<li>==w== ：可写(write)，可以修改，目录内创建+删除+重命名目录</li>
+<li>==x== ：可执行(execute)，可以进入该目录</li>
+</ul>
+<h3 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h3><p>==chmod==指令用于修改文件或目录权限</p>
+<h4 id="方一：-，-，-变更权限"><a href="#方一：-，-，-变更权限" class="headerlink" title="方一：+，-，=变更权限"></a>方一：+，-，=变更权限</h4><blockquote>
+<p>u：所有者<br>g：所在组<br>o：其他人<br>a：所有人(u,g,o总和)</p>
+</blockquote>
+<ul>
+<li>==<code>chmod u=rwx,g=rx,o=x 文件目录名</code>==：给该文件或目录所有者赋权限rwx，所在组赋权限rx，其他人赋权限x</li>
+<li>==<code>chmod o+w 文件目录名</code>==：给该文件或目录其他人添加权限w</li>
+<li>==<code>chmod a-x 文件目录名</code>==：给该文件或目录所有人去掉权限x</li>
+</ul>
+<h4 id="方二：通过数字变更权限"><a href="#方二：通过数字变更权限" class="headerlink" title="方二：通过数字变更权限"></a>方二：通过数字变更权限</h4><blockquote>
+<p>r = 4<br>w = 2<br>x = 1<br>rwx = 4 + 2 + 1 = 7  </p>
+</blockquote>
+<p>==<code>chmod 751 文件目录名</code>== 等价于 ==<code>chmod u=rwx,g=rx,o=x 文件目录名</code>==</p>
+<h1 id="crond任务调度"><a href="#crond任务调度" class="headerlink" title="crond任务调度"></a>crond任务调度</h1><h2 id="任务调度"><a href="#任务调度" class="headerlink" title="任务调度"></a>任务调度</h2><p>系统在某个时间执行的特定的命令或程序  </p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ol>
+<li>系统工作：有些重要的工作必须周而复始地执行。如病毒扫描等  </li>
+<li>个别用户工作：个别用户可能希望执行某些程序，比如对mysql数据库的备份</li>
+</ol>
+<blockquote>
+<p>crontab [选项]</p>
+</blockquote>
+<p>常用选项：</p>
+<ul>
+<li>==-e==：编辑crontab定时任务</li>
+<li>==-l==：查询crontab任务</li>
+<li>==-r==：删除当前用户所有的crontab任务</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/088880AB4D0D40518C76431EB894E6A5?method=download&shareKey=77b591189f3d496de95289d4ce682a7a" alt=""></p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/057FE3D11C93408C901D2EF977493BDE?method=download&shareKey=8a6bd02ce8d3544e9a76bdfc494ab324" alt=""></p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/AA31E33F23514DBB96DF2CBC7EF4F77A?method=download&shareKey=05ce7a11edb74614eeec2b1e6cd6a191" alt=""></p>
+<h2 id="重启任务调度"><a href="#重启任务调度" class="headerlink" title="重启任务调度"></a>重启任务调度</h2><p>==service crond restart==</p>
+<h1 id="磁盘分区和挂载"><a href="#磁盘分区和挂载" class="headerlink" title="磁盘分区和挂载"></a>磁盘分区和挂载</h1><h2 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h2><ul>
+<li>mbr分区<ol>
+<li>最多支持四个主分区</li>
+<li>系统只能安装在主分区</li>
+<li>扩展分区要占一个主分区</li>
+<li>MBR最大只支持2TB，但拥有最好的兼容性</li>
+</ol>
+</li>
+<li>gpt分区<ol>
+<li>支持无限多个主分区（但操作系统可能限制，比如 windows下最多128个分区）</li>
+<li>最大支持18EB的大容量（1EB=1024 PB， 1PB=1024 TB ）</li>
+<li>windows7 64位以后支持gpt</li>
+</ol>
+</li>
+</ul>
+<h2 id="硬盘说明"><a href="#硬盘说明" class="headerlink" title="硬盘说明"></a>硬盘说明</h2><ul>
+<li>linux硬盘分为IDE硬盘和SCSI硬盘</li>
+<li>IDE硬盘的驱动器标识符为 ==hdx~==<ul>
+<li>==hd==:分区所在设备类型，hd表示IDE硬盘</li>
+<li>==x==：盘号，a为第一个硬盘，b为第二个，以此类推</li>
+<li>==~==：分区，前4个分区用1-4表示，为主分区或扩展分区，5及以后为逻辑分区</li>
+</ul>
+</li>
+<li>SCSI硬盘标识为 ==sdx~==</li>
+</ul>
+<h3 id="查看当前系统分区情况"><a href="#查看当前系统分区情况" class="headerlink" title="查看当前系统分区情况"></a>查看当前系统分区情况</h3><blockquote>
+<p>lsblk -f</p>
+</blockquote>
+<p><img src="https://note.youdao.com/yws/api/personal/file/A7D44786D0524495B91378341465CE0A?method=download&shareKey=5a6fd7cd6c3a56fb94f0f2039fa4c6d9" alt=""></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/18/redis%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/redis%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url">
-              
-                <span itemprop="name">redis学习记录</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-18T19:16:33+08:00"
-              content="2019-02-18" >
-          02-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/11/Mybatis%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Mybatis%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url">
-              
-                <span itemprop="name">Mybatis学习记录</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-11T10:23:54+08:00"
-              content="2019-02-11" >
-          02-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/21/springmvc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/springmvc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/" itemprop="url">
-              
-                <span itemprop="name">springmvc学习记录二</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-21T14:35:29+08:00"
-              content="2019-01-21" >
-          01-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/18/springmvc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/springmvc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/" itemprop="url">
-              
-                <span itemprop="name">springmvc学习记录一</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-18T16:50:29+08:00"
-              content="2019-01-18" >
-          01-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/16/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/" itemprop="url">
-              
-                <span itemprop="name">spring学习记录二</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-16T15:12:29+08:00"
-              content="2019-01-16" >
-          01-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/07/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/spring%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/" itemprop="url">
-              
-                <span itemprop="name">spring学习记录一</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-07T16:33:49+08:00"
-              content="2019-01-07" >
-          01-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/24/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/Linux01/" rel="next" title="Linux学习记录01">
+                <i class="fa fa-chevron-left"></i> Linux学习记录01
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/10/CSS/css3(%E8%BF%87%E6%B8%A1%EF%BC%8C%E5%8F%98%E5%BD%A2)/" rel="prev" title="css3(过渡，变形)">
+                css3(过渡，变形) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -648,6 +574,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -668,8 +598,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -740,6 +679,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#组管理和权限管理"><span class="nav-number">1.</span> <span class="nav-text">组管理和权限管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用户和组"><span class="nav-number">1.1.</span> <span class="nav-text">用户和组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户管理"><span class="nav-number">1.1.1.</span> <span class="nav-text">用户管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户组"><span class="nav-number">1.1.2.</span> <span class="nav-text">用户组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户和组相关文件"><span class="nav-number">1.1.3.</span> <span class="nav-text">用户和组相关文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看文件所有者"><span class="nav-number">1.1.4.</span> <span class="nav-text">查看文件所有者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文件所有者和所在组"><span class="nav-number">1.1.5.</span> <span class="nav-text">修改文件所有者和所在组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限"><span class="nav-number">1.2.</span> <span class="nav-text">权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rwx权限详解"><span class="nav-number">1.2.1.</span> <span class="nav-text">rwx权限详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#rwx作用于文件"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">rwx作用于文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rwx作用于目录"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">rwx作用于目录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改权限"><span class="nav-number">1.2.2.</span> <span class="nav-text">修改权限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方一：-，-，-变更权限"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">方一：+，-，=变更权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方二：通过数字变更权限"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">方二：通过数字变更权限</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#crond任务调度"><span class="nav-number">2.</span> <span class="nav-text">crond任务调度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#任务调度"><span class="nav-number">2.1.</span> <span class="nav-text">任务调度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">2.2.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启任务调度"><span class="nav-number">2.3.</span> <span class="nav-text">重启任务调度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#磁盘分区和挂载"><span class="nav-number">3.</span> <span class="nav-text">磁盘分区和挂载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分区"><span class="nav-number">3.1.</span> <span class="nav-text">分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬盘说明"><span class="nav-number">3.2.</span> <span class="nav-text">硬盘说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前系统分区情况"><span class="nav-number">3.2.1.</span> <span class="nav-text">查看当前系统分区情况</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -895,6 +850,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
