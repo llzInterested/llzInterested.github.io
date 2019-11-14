@@ -29,7 +29,7 @@
       
         
         
-          &lt;h1 id=&quot;缓存管理&quot;&gt;&lt;a href=&quot;#缓存管理&quot; class=&quot;headerlink&quot;
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;缓存管理&quot;&gt;&lt;a href=&quot;#缓存管理&quot; class=&quot;headerlink&quot;
         
       
     
@@ -60,7 +60,7 @@
       
         
         
-          &lt;h1 id=&quot;授权&quot;&gt;&lt;a href=&quot;#授权&quot; class=&quot;headerlink&quot;
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;授权&quot;&gt;&lt;a href=&quot;#授权&quot; class=&quot;headerlink&quot;
         
       
     
@@ -91,8 +91,7 @@
       
         
         
-          &lt;h1 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h1&gt;&lt;p&gt;shiro是一个基于java的开源的安全管理框架，可以完成认证，授权，会话管理，加密，缓存等功能&lt;/p&gt;
-&lt;p&gt;&lt;img
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot;
         
       
     
@@ -123,8 +122,7 @@
       
         
         
-          &lt;h1 id=&quot;指令&quot;&gt;&lt;a href=&quot;#指令&quot; class=&quot;headerlink&quot; title=&quot;指令&quot;&gt;&lt;/a&gt;指令&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;设置有效时间：&lt;code&gt;expire [属性名]
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;指令&quot;&gt;&lt;a href=&quot;#指令&quot; class=&quot;headerlink&quot;
         
       
     
@@ -155,7 +153,7 @@
       
         
         
-          &lt;h1 id=&quot;resultMap&quot;&gt;&lt;a href=&quot;#resultMap&quot; class=&quot;headerlink&quot; title=&quot;resultMap&quot;&gt;&lt;/a&gt;resultMap&lt;/h1&gt;&lt;h2 id=&quot;resultMap实现关联单个对象-N-1方式&quot;&gt;&lt;a
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;resultMap&quot;&gt;&lt;a href=&quot;#resultMap&quot; class=&quot;headerlink&quot;
         
       
     
@@ -186,7 +184,7 @@
       
         
         
-          &lt;h1 id=&quot;jsp&quot;&gt;&lt;a href=&quot;#jsp&quot; class=&quot;headerlink&quot; title=&quot;jsp&quot;&gt;&lt;/a&gt;jsp&lt;/h1&gt;&lt;h2 id=&quot;9大内置对象&quot;&gt;&lt;a href=&quot;#9大内置对象&quot; class=&quot;headerlink&quot;
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;jsp&quot;&gt;&lt;a href=&quot;#jsp&quot; class=&quot;headerlink&quot; title=&quot;jsp&quot;&gt;&lt;/a&gt;jsp&lt;/h1&gt;&lt;h2
         
       
     
@@ -217,7 +215,7 @@
       
         
         
-          &lt;h1 id=&quot;重要组件&quot;&gt;&lt;a href=&quot;#重要组件&quot; class=&quot;headerlink&quot; title=&quot;重要组件&quot;&gt;&lt;/a&gt;重要组件&lt;/h1&gt;&lt;h2 id=&quot;DispatchServlet&quot;&gt;&lt;a href=&quot;#DispatchServlet&quot;
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;重要组件&quot;&gt;&lt;a href=&quot;#重要组件&quot; class=&quot;headerlink&quot;
         
       
     
@@ -248,10 +246,7 @@
       
         
         
-          &lt;h1 id=&quot;注解扫描&quot;&gt;&lt;a href=&quot;#注解扫描&quot; class=&quot;headerlink&quot; title=&quot;注解扫描&quot;&gt;&lt;/a&gt;注解扫描&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;配置文件中添加自动扫描配置&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;注解扫描&quot;&gt;&lt;a href=&quot;#注解扫描&quot; class=&quot;headerlink&quot;
         
       
     
@@ -282,7 +277,7 @@
       
         
         
-          &lt;h1 id=&quot;概览&quot;&gt;&lt;a href=&quot;#概览&quot; class=&quot;headerlink&quot; title=&quot;概览&quot;&gt;&lt;/a&gt;概览&lt;/h1&gt;&lt;p&gt;&lt;img
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;概览&quot;&gt;&lt;a href=&quot;#概览&quot; class=&quot;headerlink&quot; title=&quot;概览&quot;&gt;&lt;/a&gt;概览&lt;/h1&gt;&lt;p&gt;&lt;img
         
       
     
@@ -313,9 +308,7 @@
       
         
         
-          &lt;h1 id=&quot;环境搭建&quot;&gt;&lt;a href=&quot;#环境搭建&quot; class=&quot;headerlink&quot; title=&quot;环境搭建&quot;&gt;&lt;/a&gt;环境搭建&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;创建maven工程自己导jar包&lt;/li&gt;
-&lt;li&gt;idea中使用Spring
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;环境搭建&quot;&gt;&lt;a href=&quot;#环境搭建&quot; class=&quot;headerlink&quot;
         
       
     
@@ -346,7 +339,7 @@
       
         
         
-          &lt;h1 id=&quot;JMS消息模型&quot;&gt;&lt;a href=&quot;#JMS消息模型&quot; class=&quot;headerlink&quot; title=&quot;JMS消息模型&quot;&gt;&lt;/a&gt;JMS消息模型&lt;/h1&gt;&lt;h2 id=&quot;名词解释&quot;&gt;&lt;a href=&quot;#名词解释&quot; class=&quot;headerlink&quot;
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;JMS消息模型&quot;&gt;&lt;a href=&quot;#JMS消息模型&quot; class=&quot;headerlink&quot;
         
       
     
@@ -377,7 +370,7 @@
       
         
         
-          &lt;h1 id=&quot;过渡&quot;&gt;&lt;a href=&quot;#过渡&quot; class=&quot;headerlink&quot;
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;过渡&quot;&gt;&lt;a href=&quot;#过渡&quot; class=&quot;headerlink&quot;
         
       
     
@@ -408,7 +401,7 @@
       
         
         
-          &lt;h1 id=&quot;组管理和权限管理&quot;&gt;&lt;a href=&quot;#组管理和权限管理&quot; class=&quot;headerlink&quot; title=&quot;组管理和权限管理&quot;&gt;&lt;/a&gt;组管理和权限管理&lt;/h1&gt;&lt;h2 id=&quot;用户和组&quot;&gt;&lt;a href=&quot;#用户和组&quot; class=&quot;headerlink&quot;
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;组管理和权限管理&quot;&gt;&lt;a href=&quot;#组管理和权限管理&quot; class=&quot;headerlink&quot;
         
       
     
@@ -435,7 +428,7 @@
       
         
         
-          &lt;h1 id=&quot;虚拟机网络连接三种方式&quot;&gt;&lt;a href=&quot;#虚拟机网络连接三种方式&quot; class=&quot;headerlink&quot;
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;虚拟机网络连接三种方式&quot;&gt;&lt;a href=&quot;#虚拟机网络连接三种方式&quot; class=&quot;headerlink&quot;
         
       
     
@@ -462,7 +455,7 @@
       
         
         
-          &lt;h1 id=&quot;String&quot;&gt;&lt;a href=&quot;#String&quot; class=&quot;headerlink&quot; title=&quot;String&quot;&gt;&lt;/a&gt;String&lt;/h1&gt;&lt;h2 id=&quot;includes-查找的字符串，-起始位置&quot;&gt;&lt;a
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;String&quot;&gt;&lt;a href=&quot;#String&quot; class=&quot;headerlink&quot;
         
       
     
@@ -493,7 +486,7 @@
       
         
         
-          &lt;h1 id=&quot;Array&quot;&gt;&lt;a href=&quot;#Array&quot; class=&quot;headerlink&quot; title=&quot;Array&quot;&gt;&lt;/a&gt;Array&lt;/h1&gt;&lt;h2 id=&quot;Array-from-要转为数组的对象，-function-，-绑定this&quot;&gt;&lt;a
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;Array&quot;&gt;&lt;a href=&quot;#Array&quot; class=&quot;headerlink&quot;
         
       
     
@@ -524,7 +517,7 @@
       
         
         
-          &lt;h1 id=&quot;视图&quot;&gt;&lt;a href=&quot;#视图&quot; class=&quot;headerlink&quot; title=&quot;视图&quot;&gt;&lt;/a&gt;视图&lt;/h1&gt;&lt;h2 id=&quot;含义&quot;&gt;&lt;a href=&quot;#含义&quot; class=&quot;headerlink&quot;
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;视图&quot;&gt;&lt;a href=&quot;#视图&quot; class=&quot;headerlink&quot; title=&quot;视图&quot;&gt;&lt;/a&gt;视图&lt;/h1&gt;&lt;h2
         
       
     
@@ -555,7 +548,7 @@
       
         
         
-          &lt;h1 id=&quot;数值型&quot;&gt;&lt;a href=&quot;#数值型&quot; class=&quot;headerlink&quot; title=&quot;数值型&quot;&gt;&lt;/a&gt;数值型&lt;/h1&gt;&lt;h2 id=&quot;整型&quot;&gt;&lt;a href=&quot;#整型&quot; class=&quot;headerlink&quot;
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;数值型&quot;&gt;&lt;a href=&quot;#数值型&quot; class=&quot;headerlink&quot; title=&quot;数值型&quot;&gt;&lt;/a&gt;数值型&lt;/h1&gt;&lt;h2
         
       
     
@@ -586,7 +579,7 @@
       
         
         
-          &lt;h1 id=&quot;事务控制语言Transaction-Control-Language&quot;&gt;&lt;a href=&quot;#事务控制语言Transaction-Control-Language&quot; class=&quot;headerlink&quot; title=&quot;事务控制语言Transaction
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;事务控制语言Transaction-Control-Language&quot;&gt;&lt;a
         
       
     
@@ -617,7 +610,7 @@
       
         
         
-          &lt;h1 id=&quot;DQL&quot;&gt;&lt;a href=&quot;#DQL&quot; class=&quot;headerlink&quot; title=&quot;DQL&quot;&gt;&lt;/a&gt;DQL&lt;/h1&gt;&lt;h2 id=&quot;常用API&quot;&gt;&lt;a href=&quot;#常用API&quot; class=&quot;headerlink&quot;
+          &lt;!-- build time:Thu Nov 14 2019 17:22:58 GMT+0800 (GMT+08:00) --&gt;&lt;h1 id=&quot;DQL&quot;&gt;&lt;a href=&quot;#DQL&quot; class=&quot;headerlink&quot; title=&quot;DQL&quot;&gt;&lt;/a&gt;DQL&lt;/h1&gt;&lt;h2
         
       
     
